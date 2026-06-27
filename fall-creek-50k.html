@@ -327,8 +327,8 @@ const phases = [
   {
     id: 3,
     name: "Phase 3: Peak Training",
-    weeks: "Weeks 12–17",
-    dates: "Sept 14 – Oct 25",
+    weeks: "Weeks 12–18",
+    dates: "Sept 14 – Nov 1",
     subtitle: "The hard work. Where the race is won.",
     color: "#7a3b1e",
     accent: "#f5e6d0",
@@ -340,38 +340,38 @@ const phases = [
     ],
     weeklySchedule: [
       {
-        week: "Week 12", label: "Sept 14 – Sept 20", total: "28 miles",
+        week: "Week 12", label: "Sept 14 – Sept 20", total: "20 miles",
         days: [
-          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm — scale if legs are wrecked" },
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm — scale if legs are tired from transition" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Medium Run + CrossFit", miles: 9, notes: "Early AM. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Easy Run", miles: 5, notes: "Early AM. Easy recovery effort." },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 7, notes: "Early AM. Transition week — controlled effort. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM. Easy recovery pace." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 14, notes: "Seek out climbs. Practice race nutrition. Bring layers — mornings are cooling." },
+          { day: "Sat", activity: "Trail Run", miles: 9, notes: "First peak phase run. Seek out climbs. Practice race nutrition. Bring layers." },
           { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
         ]
       },
       {
-        week: "Week 13", label: "Sept 21 – Sept 27", total: "31 miles",
+        week: "Week 13", label: "Sept 21 – Sept 27", total: "28 miles",
         days: [
           { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Medium Run + CrossFit", miles: 10, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 9, notes: "Early AM. CrossFit 4:30pm." },
           { day: "Thu", activity: "Easy Run", miles: 5, notes: "Early AM." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 16, notes: "First real ultra-distance training run. 3.5–4+ hours. Full nutrition protocol." },
-          { day: "Sun", activity: "Recovery Run", miles: 3, notes: "Very easy. Back-to-back training begins." },
+          { day: "Sat", activity: "Trail Run", miles: 14, notes: "Building toward peak. Full nutrition protocol. Hike every climb." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
         ]
       },
       {
-        week: "Week 14", label: "Sept 28 – Oct 4", total: "24 miles (recovery)",
+        week: "Week 14", label: "Sept 28 – Oct 4", total: "22 miles (recovery)",
         days: [
           { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Wed", activity: "Medium Run + CrossFit", miles: 8, notes: "Early AM. Easier effort this week. CrossFit 4:30pm." },
           { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 12, notes: "Recovery long run. Easy pace. Enjoy it." },
+          { day: "Sat", activity: "Trail Run", miles: 10, notes: "Recovery long run. Easy pace. Enjoy it. Body is absorbing the build." },
           { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
         ]
       },
@@ -396,19 +396,31 @@ const phases = [
           { day: "Thu", activity: "Easy Run", miles: 5, notes: "Early AM." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Sat", activity: "Trail Run", miles: 18, notes: "Second peak long run. Seek elevation. Full race nutrition practice." },
-          { day: "Sun", activity: "Recovery Run", miles: 3, notes: "Very easy. Final back-to-back of the training cycle." },
+          { day: "Sun", activity: "Recovery Run", miles: 3, notes: "Very easy. Back-to-back fatigue training." },
         ]
       },
       {
-        week: "Week 17", label: "Oct 19 – Oct 25", total: "22 miles (taper entry)",
+        week: "Week 17", label: "Oct 19 – Oct 25", total: "22 miles (recovery)",
         days: [
           { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Medium Run + CrossFit", miles: 7, notes: "Early AM. Reduce effort — taper begins. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM." },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 7, notes: "Early AM. Recovery week — pull back effort. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM. Short and easy." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 11, notes: "Controlled effort. No heroics. Body is starting to rest." },
+          { day: "Sat", activity: "Trail Run", miles: 11, notes: "Recovery long run. Relaxed pace. Body is absorbing peak training." },
           { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+        ]
+      },
+      {
+        week: "Week 18", label: "Oct 26 – Nov 1", total: "29 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 9, notes: "Early AM. Final peak week — good effort. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 5, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 15, notes: "Final long run before taper. This is the last hard effort. Run it well." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest. Taper begins tomorrow." },
         ]
       },
     ],
@@ -416,63 +428,51 @@ const phases = [
     macros: { protein: "155–170g", carbs: "370–420g", fat: "75–90g" },
     nutrition: [
       { title: "Easy days: 3,000–3,200 cal", detail: "You are now in maintenance — no more deficit. Protein: 155–170g. Carbs: 370–420g. Fat: 75–90g. Your body needs fuel to handle 30–35 miles/week plus CrossFit." },
-      { title: "Long run days (16–20+ miles): 3,500–3,800 cal", detail: "Peak long run days require aggressive fueling. Load carbs the night before. Fuel during the run every 30–45 min. Recover with protein and carbs within 30 min of finishing." },
+      { title: "Long run days (14–20+ miles): 3,500–3,800 cal", detail: "Peak long run days require aggressive fueling. Load carbs the night before. Fuel during the run every 30–45 min. Recover with protein and carbs within 30 min of finishing." },
       { title: "Race nutrition dialed in", detail: "By week 13, you should have a practiced nutrition plan for every 45 minutes of running. Know exactly what you are eating and carrying at Fall Creek." },
       { title: "Drop bag planning", detail: "Fall Creek aid stations — build your drop bag now. Vegan-specific items: rice balls with soy sauce, boiled potatoes with salt, dates, almond butter packets, vegan gels, backup dry clothes." },
       { title: "Carb loading practice", detail: "Practice carb loading the Friday before your 20-mile run in Week 15. High-carb vegan meals: pasta with marinara, rice with roasted vegetables, sweet potatoes." },
       { title: "Weight target", detail: "You should reach 163–165 lbs around week 13. After that, stop trying to lose weight. Fueling for performance is the only priority now." },
       { title: "Cold weather hydration", detail: "You will feel less thirsty in cold weather but still lose fluids. Force fluids even when you do not want them. Practice drinking cold in cool morning conditions." },
     ],
-    keyNotes: "Week 15 is your most important training week. The 20-mile trail run should mimic race day exactly: 6:30am start, full gear, full nutrition plan, cold morning layers. This is your dress rehearsal. If something goes wrong in training, you want to discover it here — not at mile 20 of the race.",
+    keyNotes: "Week 15 is your most important training week. The 20-mile trail run should mimic race day exactly: 6:30am start, full gear, full nutrition plan, cold morning layers. Week 18 is your final long run before the taper — run it well and then trust what you have built.",
   },
   {
     id: 4,
     name: "Phase 4: Taper",
-    weeks: "Weeks 18–21",
-    dates: "Oct 26 – Nov 21",
+    weeks: "Weeks 19–21",
+    dates: "Nov 2 – Nov 21",
     subtitle: "Trust the work. Arrive fresh.",
     color: "#5a4a8a",
     accent: "#e8e0f5",
     goals: [
-      "Reduce volume while maintaining frequency",
+      "2-week taper — reduce volume 40–50%, maintain frequency",
       "Arrive at the start line healthy, rested, and at 163–165 lbs",
       "Finalize all race logistics, gear, and nutrition",
       "Mental preparation",
     ],
     weeklySchedule: [
       {
-        week: "Week 18", label: "Oct 26 – Nov 1", total: "22 miles",
+        week: "Week 19", label: "Nov 2 – Nov 8", total: "18 miles",
         days: [
-          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm — maintain frequency, reduce intensity" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Easy Run + CrossFit", miles: 6, notes: "Early AM. Taper begins — easier effort. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM." },
+          { day: "Wed", activity: "Easy Run + CrossFit", miles: 6, notes: "Early AM. Taper begins — easier effort, same schedule. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM. Relaxed pace." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 12, notes: "Controlled effort. This is the last big run." },
+          { day: "Sat", activity: "Trail Run", miles: 8, notes: "First taper long run. Easy effort. You will feel restless. That is correct." },
           { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
         ]
       },
       {
-        week: "Week 19", label: "Nov 2 – Nov 8", total: "17 miles",
+        week: "Week 20", label: "Nov 9 – Nov 15", total: "10 miles",
         days: [
-          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Easy Run + CrossFit", miles: 5, notes: "Early AM. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Easy Run", miles: 3, notes: "Early AM. Short and relaxed." },
-          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 9, notes: "Easy effort. You will feel restless. That is correct." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
-        ]
-      },
-      {
-        week: "Week 20", label: "Nov 9 – Nov 15", total: "11 miles",
-        days: [
-          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm — keep it light" },
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm — light effort" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm — light effort" },
-          { day: "Wed", activity: "Easy Run + CrossFit", miles: 3, notes: "Early AM. Very easy. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Easy Run", miles: 2, notes: "Early AM. Shake out the legs." },
-          { day: "Fri", activity: "CrossFit or Rest", miles: null, notes: "Light CrossFit or full rest." },
-          { day: "Sat", activity: "Trail Run", miles: 6, notes: "Easy trail run. Legs should be feeling springy and fresh." },
+          { day: "Wed", activity: "Easy Run + CrossFit", miles: 4, notes: "Early AM. Very easy. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 2, notes: "Early AM. Short shakeout." },
+          { day: "Fri", activity: "CrossFit or Rest", miles: null, notes: "Light CrossFit or full rest. Listen to your body." },
+          { day: "Sat", activity: "Trail Run", miles: 4, notes: "Short easy trail run. Legs should be feeling springy and fresh." },
           { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
         ]
       },
@@ -481,8 +481,8 @@ const phases = [
         days: [
           { day: "Mon", activity: "CrossFit (light)", miles: null, notes: "Very light effort only. No heroics." },
           { day: "Tue", activity: "CrossFit (light)", miles: null, notes: "Last CrossFit before race. Light." },
-          { day: "Wed", activity: "Easy Run", miles: 3, notes: "Early AM. 3 easy miles to stay loose." },
-          { day: "Thu", activity: "Rest", miles: null, notes: "Full rest. Pack your drop bag." },
+          { day: "Wed", activity: "Easy Run", miles: 3, notes: "Early AM. 3 easy miles to stay loose. Nothing more." },
+          { day: "Thu", activity: "Rest", miles: null, notes: "Full rest. Pack your drop bag today." },
           { day: "Fri", activity: "Rest", miles: null, notes: "Full rest. Drive to Fall Creek Falls. Sleep early." },
           { day: "Sat", activity: "RACE DAY", miles: null, notes: "6:30am start. Fall Creek 100 — 50K. You are ready." },
           { day: "Sun", activity: "Rest", miles: null, notes: "You just ran a 50K. Rest everything." },
@@ -492,14 +492,14 @@ const phases = [
     cals: { easy: "2,700–3,000", longRun: "3,200–3,500 (race week)", label: "Maintenance + glycogen loading into race" },
     macros: { protein: "155–165g", carbs: "320–380g", fat: "70–80g" },
     nutrition: [
-      { title: "Weeks 18–20: 2,700–3,000 cal", detail: "Volume drops but do not slash calories. Keep protein at 155–165g to maintain muscle. Keep carbs at 320–380g — your body is storing glycogen. Fat: 70–80g." },
+      { title: "Taper weeks: 2,700–3,000 cal", detail: "Volume drops but do not slash calories. Keep protein at 155–165g to maintain muscle. Keep carbs at 320–380g — your body is storing glycogen. Fat: 70–80g. Per Jason Koop, the ultra taper should not look dramatically different from a normal deload week." },
       { title: "Race week (Wk 21): 3,200–3,500 cal", detail: "Carb load Wednesday through Friday. Increase carbs to 450–500g/day. Reduce fat slightly. Keep protein stable. Do not eat anything new or unusual." },
       { title: "Race week carb loading meals", detail: "Wednesday–Friday: rice with roasted vegetables, pasta with marinara, oatmeal with banana and maple syrup, sweet potatoes. Avoid high-fiber raw vegetables the day before." },
       { title: "Race morning (4:30am): 600–800 cal", detail: "Oatmeal with banana, almond butter, maple syrup. Coffee if that is your routine — do not change it race morning. Eat 2 full hours before start." },
       { title: "Race day fueling plan", detail: "Fuel every 30–45 min from mile 5 onward. Do not wait until you are hungry — that is too late. Alternate savory and sweet. Target 150–200 cal/hour. Carry backup calories beyond what you think you need." },
-      { title: "Taper madness", detail: "You will feel heavy, sluggish, and undertrained in weeks 19–20. This is normal and universal. Your body is storing glycogen and repairing tissue. Do not add miles back in." },
+      { title: "Taper madness", detail: "You will feel heavy, sluggish, and undertrained in week 20. This is normal. Your body is storing glycogen and repairing tissue. Do not add miles back in. Research confirms 2 weeks is optimal for a 50K taper." },
     ],
-    keyNotes: "The taper is part of your training. Fitness gains from your peak weeks are still being absorbed. Arriving to the start line at 165 lbs, healthy, and rested is the entire goal of these four weeks. Resist every urge to do more.",
+    keyNotes: "The taper is part of your training. A 2-week taper is well-supported by research for a 50K — Jason Koop specifically notes that ultra tapers do not need to be elaborate. Arriving to the start line at 165 lbs, healthy, and rested is the entire goal. Resist every urge to do more.",
   },
 ];
 
