@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Fall Creek 50K">
+  <meta name="theme-color" content="#1a2e1a">
+  <title>Fall Creek 50K Training Plan</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; background: #f9f6f1; font-family: Georgia, serif; color: #1a1a1a; overflow-x: hidden; }
+    body { padding-bottom: env(safe-area-inset-bottom); }
+    #install-banner { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #1a2e1a; color: white; padding: 12px 20px; justify-content: space-between; align-items: center; z-index: 1000; padding-bottom: calc(12px + env(safe-area-inset-bottom)); }
+    #install-banner p { font-family: system-ui, sans-serif; font-size: 13px; }
+    #install-btn { background: #4a7c59; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-family: system-ui, sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; }
+    #dismiss-btn { background: transparent; color: #9dc49d; border: none; padding: 8px; font-family: system-ui, sans-serif; font-size: 13px; cursor: pointer; }
+    .header { background: linear-gradient(135deg, #1a2e1a 0%, #2c4a2c 60%, #3d6b3d 100%); padding: calc(48px + env(safe-area-inset-top)) 20px 32px; color: white; }
+    .header-eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #9dc49d; margin-bottom: 8px; font-family: system-ui, sans-serif; }
+    .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 4px; line-height: 1.2; }
+    .header-sub { font-size: 13px; color: #c8dfc8; margin-bottom: 18px; font-family: system-ui, sans-serif; }
+    .header-stats { display: flex; gap: 18px; flex-wrap: wrap; }
+    .stat label { display: block; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #9dc49d; font-family: system-ui, sans-serif; }
+    .stat span { display: block; font-size: 15px; font-weight: 600; margin-top: 1px; }
+    .phase-nav { background: #2a2a2a; display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .phase-nav::-webkit-scrollbar { display: none; }
+    .phase-btn { background: transparent; color: #aaa; border: none; border-bottom: 3px solid transparent; padding: 11px 14px; cursor: pointer; font-size: 11px; font-family: system-ui, sans-serif; white-space: nowrap; flex-shrink: 0; line-height: 1.3; }
+    .phase-btn.active { color: white; font-weight: 700; }
+    .phase-btn small { display: block; font-size: 9px; color: #666; }
+    .phase-btn.active small { color: rgba(255,255,255,0.6); }
+    .content { padding: 18px 14px 80px; max-width: 600px; margin: 0 auto; }
+    .eyebrow { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; font-family: system-ui, sans-serif; margin-bottom: 4px; }
+    h2.phase-title { font-size: 20px; margin-bottom: 3px; }
+    .phase-sub { font-size: 14px; color: #555; font-style: italic; margin-bottom: 18px; }
+    .goals-box { border-radius: 8px; padding: 14px; margin-bottom: 18px; }
+    .goals-lbl { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-family: system-ui, sans-serif; font-weight: 700; margin-bottom: 8px; }
+    .goal-row { display: flex; gap: 8px; margin-bottom: 6px; }
+    .goal-chk { font-weight: 700; font-size: 13px; flex-shrink: 0; }
+    .goal-txt { font-family: system-ui, sans-serif; font-size: 12px; line-height: 1.5; }
+    .tab-bar { display: flex; border-bottom: 2px solid #e5e5e5; margin-bottom: 18px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .tab-bar::-webkit-scrollbar { display: none; }
+    .tab-btn { background: none; border: none; border-bottom: 2px solid transparent; padding: 9px 13px; cursor: pointer; font-size: 11px; font-family: system-ui, sans-serif; white-space: nowrap; margin-bottom: -2px; color: #888; }
+    .tab-btn.active { font-weight: 700; }
+    .week-pills { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 14px; }
+    .week-pill { background: white; color: #555; border: 1px solid #ddd; border-radius: 6px; padding: 5px 10px; cursor: pointer; font-size: 11px; font-family: system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
+    .week-pill.active { color: white; font-weight: 700; }
+    .week-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .week-title-txt { font-family: system-ui, sans-serif; font-weight: 700; font-size: 14px; }
+    .week-dates-txt { font-family: system-ui, sans-serif; font-size: 11px; color: #888; margin-top: 2px; }
+    .week-meta { display: flex; align-items: center; gap: 7px; }
+    .week-count { font-family: system-ui, sans-serif; font-size: 10px; color: #999; }
+    .week-badge { color: white; border-radius: 6px; padding: 4px 11px; font-family: system-ui, sans-serif; font-weight: 700; font-size: 13px; }
+    .progress-bar { height: 3px; background: #eee; border-radius: 4px; margin-bottom: 11px; overflow: hidden; }
+    .progress-fill { height: 100%; border-radius: 4px; transition: width 0.3s; }
+    .day-row { display: grid; grid-template-columns: 26px 38px 1fr 48px; gap: 9px; padding: 11px 13px; border: 1px solid #e8e8e8; border-left: 3px solid #ccc; border-radius: 6px; margin-bottom: 6px; align-items: center; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background 0.15s; }
+    .day-row:active { opacity: 0.75; }
+    .cb { width: 19px; height: 19px; border-radius: 4px; border: 2px solid #ccc; background: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px; font-weight: 700; color: white; transition: all 0.15s; }
+    .day-lbl { font-family: system-ui, sans-serif; font-weight: 700; font-size: 11px; color: #444; }
+    .day-act { font-family: system-ui, sans-serif; font-weight: 600; font-size: 12px; margin-bottom: 2px; }
+    .day-notes-txt { font-family: system-ui, sans-serif; font-size: 10px; color: #999; }
+    .day-mi { font-family: system-ui, sans-serif; font-weight: 700; font-size: 13px; text-align: right; }
+    .week-complete { padding: 10px 13px; border-radius: 6px; text-align: center; font-family: system-ui, sans-serif; font-weight: 700; font-size: 12px; margin-top: 9px; }
+    .coach-note { margin-top: 13px; padding: 12px 13px; background: #fffbf0; border: 1px solid #f0d070; border-radius: 6px; }
+    .cn-lbl { font-family: system-ui, sans-serif; font-weight: 700; font-size: 10px; color: #a07010; margin-bottom: 4px; letter-spacing: 1px; text-transform: uppercase; }
+    .cn-txt { font-family: system-ui, sans-serif; font-size: 12px; color: #555; line-height: 1.6; }
+    .mi-row { padding: 12px 13px; background: white; border: 1px solid #e8e8e8; border-radius: 6px; margin-bottom: 7px; }
+    .mi-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 9px; }
+    .mi-wk { font-family: system-ui, sans-serif; font-weight: 700; font-size: 12px; }
+    .mi-total { font-family: system-ui, sans-serif; font-weight: 700; font-size: 16px; }
+    .day-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 3px; }
+    .day-cell { text-align: center; }
+    .dc-lbl { font-size: 8px; font-family: system-ui, sans-serif; color: #999; margin-bottom: 2px; }
+    .dc-val { border-radius: 3px; padding: 3px 1px; font-size: 9px; font-family: system-ui, sans-serif; font-weight: 600; }
+    .bar-chart { margin-top: 18px; padding: 14px; background: white; border: 1px solid #e8e8e8; border-radius: 8px; }
+    .bc-lbl { font-family: system-ui, sans-serif; font-size: 10px; font-weight: 700; color: #888; margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase; }
+    .bars { display: flex; align-items: flex-end; gap: 5px; height: 65px; }
+    .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; height: 100%; justify-content: flex-end; }
+    .bar-fill { width: 100%; border-radius: 3px 3px 0 0; opacity: 0.85; }
+    .bar-lbl { font-family: system-ui, sans-serif; font-size: 8px; color: #999; }
+    .sec-div { display: flex; align-items: center; gap: 10px; margin: 8px 0 16px; }
+    .sec-div-txt { font-family: system-ui, sans-serif; font-weight: 800; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #888; white-space: nowrap; }
+    .sec-div-line { flex: 1; height: 1px; background: #e5e5e5; }
+    .routine-hdr { border-left: 4px solid #ccc; padding-left: 13px; margin-bottom: 11px; }
+    .routine-title { font-size: 15px; font-family: system-ui, sans-serif; font-weight: 700; color: #1a1a1a; margin-bottom: 2px; }
+    .routine-sub { font-family: system-ui, sans-serif; font-size: 11px; font-weight: 600; }
+    .routine-note { padding: 10px 13px; background: #fffbf0; border: 1px solid #f0d070; border-radius: 6px; margin-bottom: 10px; font-family: system-ui, sans-serif; font-size: 11px; color: #666; line-height: 1.6; font-style: italic; }
+    .step-row { display: grid; grid-template-columns: 30px 1fr auto; gap: 10px; padding: 11px 12px; background: white; border: 1px solid #e8e8e8; border-left: 3px solid #ccc; border-radius: 6px; margin-bottom: 6px; align-items: flex-start; }
+    .step-icon { font-size: 17px; text-align: center; }
+    .step-name { font-family: system-ui, sans-serif; font-weight: 700; font-size: 12px; color: #1a1a1a; margin-bottom: 2px; }
+    .step-desc { font-family: system-ui, sans-serif; font-size: 11px; color: #666; line-height: 1.5; }
+    .step-dur { font-family: system-ui, sans-serif; font-weight: 700; font-size: 10px; text-align: right; white-space: nowrap; min-width: 55px; }
+    .pn-box { padding: 12px 13px; border-radius: 8px; margin-bottom: 20px; display: flex; gap: 9px; align-items: flex-start; }
+    .pn-icon { font-size: 15px; flex-shrink: 0; }
+    .pn-title { font-family: system-ui, sans-serif; font-weight: 700; font-size: 11px; margin-bottom: 3px; }
+    .pn-text { font-family: system-ui, sans-serif; font-size: 12px; color: #555; line-height: 1.5; }
+    .cal-box { border-radius: 8px; padding: 16px; color: white; margin-bottom: 12px; }
+    .cal-lbl { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.75; font-family: system-ui, sans-serif; margin-bottom: 11px; font-weight: 700; }
+    .cal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+    .cal-card { background: rgba(255,255,255,0.15); border-radius: 6px; padding: 10px 12px; }
+    .cal-card-lbl { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.8; font-family: system-ui, sans-serif; margin-bottom: 2px; }
+    .cal-card-val { font-size: 18px; font-weight: 700; font-family: system-ui, sans-serif; }
+    .cal-card-unit { font-size: 9px; opacity: 0.75; font-family: system-ui, sans-serif; }
+    .macro-div { border-top: 1px solid rgba(255,255,255,0.2); padding-top: 11px; }
+    .macro-lbl { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.75; font-family: system-ui, sans-serif; margin-bottom: 7px; font-weight: 700; }
+    .macro-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; }
+    .macro-card { background: rgba(255,255,255,0.1); border-radius: 6px; padding: 8px 9px; text-align: center; }
+    .macro-val { font-size: 13px; font-weight: 700; font-family: system-ui, sans-serif; }
+    .macro-name { font-size: 8px; opacity: 0.75; font-family: system-ui, sans-serif; text-transform: uppercase; letter-spacing: 1px; margin-top: 1px; }
+    .nutr-card { padding: 13px 14px; background: white; border: 1px solid #e8e8e8; border-left: 3px solid #ccc; border-radius: 6px; margin-bottom: 7px; }
+    .nutr-title { font-family: system-ui, sans-serif; font-weight: 700; font-size: 12px; margin-bottom: 4px; color: #1a1a1a; }
+    .nutr-detail { font-family: system-ui, sans-serif; font-size: 12px; color: #555; line-height: 1.6; }
+    .race-h2 { font-size: 22px; margin-bottom: 3px; color: #8a3a3a; }
+    .race-sub { color: #666; font-family: system-ui, sans-serif; font-size: 12px; margin-bottom: 24px; }
+    .race-section { margin-bottom: 24px; }
+    .race-sec-title { font-size: 12px; font-family: system-ui, sans-serif; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #8a3a3a; border-bottom: 2px solid #f0e0e0; padding-bottom: 6px; margin-bottom: 12px; }
+    .race-item { display: flex; gap: 11px; margin-bottom: 9px; align-items: flex-start; }
+    .race-dot { width: 6px; height: 6px; background: #8a3a3a; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+    .race-txt { font-family: system-ui, sans-serif; font-size: 13px; line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+<div id="install-banner">
+  <p>📱 Add to home screen for offline access</p>
+  <div style="display:flex;gap:8px">
+    <button id="dismiss-btn" onclick="document.getElementById('install-banner').style.display='none'">Not now</button>
+    <button id="install-btn">Install</button>
+  </div>
+</div>
+
+<div id="app"></div>
+
+<script>
+const phases = [
+  {
+    id: 1,
+    name: "Phase 1: Return to Running",
+    weeks: "Weeks 1–5",
+    dates: "June 29 – August 2",
+    subtitle: "Build the habit. Protect the body.",
+    color: "#4a7c59",
+    accent: "#d4edda",
+    goals: [
+      "Reintroduce running safely — zero injury is the only metric that matters",
+      "Build to 13 miles/week by week 4, pull back in week 5",
+      "Establish the run/CrossFit schedule rhythm",
+      "Begin whole foods vegan nutrition transition",
+    ],
+    weeklySchedule: [
+      {
+        week: "Week 1", label: "June 29 – July 5", total: "7 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Easy Run + CrossFit", miles: 2, notes: "Early AM. Run/walk OK. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 2, notes: "Early AM. Conversational pace only." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 3, notes: "Easy effort. Hike every hill." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest or gentle walk." },
+        ]
+      },
+      {
+        week: "Week 2", label: "July 6 – July 12", total: "9 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Easy Run + CrossFit", miles: 2.5, notes: "Early AM. Heart rate stays conversational. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 2.5, notes: "Early AM. Same easy effort." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 4, notes: "Easy pace. No pressure on time." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+        ]
+      },
+      {
+        week: "Week 3", label: "July 13 – July 19", total: "11 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Easy Run + CrossFit", miles: 3, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 3, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 5, notes: "First run over an hour. Hike climbs. Bring water." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+        ]
+      },
+      {
+        week: "Week 4", label: "July 20 – July 26", total: "13 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Easy Run + CrossFit", miles: 3.5, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 3.5, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 6, notes: "First proper long run. Bring nutrition. Practice hiking the hills." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+        ]
+      },
+      {
+        week: "Week 5", label: "July 27 – Aug 2", total: "8 miles (recovery)",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Easy Run + CrossFit", miles: 2, notes: "Early AM. Keep it very easy. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 2, notes: "Early AM. Short and easy." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 4, notes: "Recovery long run. No pressure. Just move." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+        ]
+      },
+    ],
+    cals: { easy: "2,000–2,100", longRun: "2,300–2,400", label: "Cut — gradual ramp from starting point" },
+    macros: { protein: "130–145g", carbs: "230–260g", fat: "55–65g" },
+    nutrition: [
+      { title: "Transition to whole foods vegan", detail: "Eliminate processed foods, animal products, refined sugar. Focus on whole grains, legumes, vegetables, fruit, nuts, seeds." },
+      { title: "Start at 2,000–2,100 cal — not 1,700", detail: "1,700 calories is below your BMR of ~1,870. That is a starvation-level deficit for an active athlete. Start at 2,000–2,100 and let your body adjust. You will still lose weight." },
+      { title: "Protein (130–145g/day)", detail: "Protein is your biggest challenge on whole foods vegan. Hit it every meal. Sources: tempeh (31g/cup), lentils (18g/cup), tofu (20g/cup), edamame (17g/cup), black beans (15g/cup), hemp seeds (10g/3tbsp), pea protein powder if needed." },
+      { title: "Carbs (230–260g/day)", detail: "Carbs are your primary fuel for CrossFit and running. Do not cut them. Prioritize: oats, sweet potato, brown rice, quinoa, fruit, legumes." },
+      { title: "Fat (55–65g/day)", detail: "Keep fat moderate — not low. Healthy fats support hormone function and joint health. Sources: avocado, almond butter, walnuts, olive oil, chia seeds." },
+      { title: "Long run days — eat more (2,300–2,400 cal)", detail: "On Saturday trail runs, bump to 2,300–2,400 calories. Do NOT restrict on these days. Under-fueling long runs increases injury risk and slows adaptation." },
+      { title: "Hydration baseline", detail: "Minimum 80–100oz water daily. Add electrolytes (sodium, potassium) on run and CrossFit days." },
+      { title: "Weight target", detail: "Expect 0.5–1 lb/week loss at this calorie level. Goal: reach 170–172 by end of Phase 1. Slow and steady — you are also building fitness simultaneously." },
+    ],
+    keyNotes: "Your tendons and ligaments take 2–3x longer to adapt than your cardiovascular system. Your CrossFit fitness will make you feel capable of doing more than your connective tissue can handle. Resist that urge. Every run in this phase should feel almost embarrassingly easy.",
+  },
+  {
+    id: 2,
+    name: "Phase 2: Building the Engine",
+    weeks: "Weeks 6–11",
+    dates: "Aug 3 – Sept 13",
+    subtitle: "Stack the miles. Find your trail legs.",
+    color: "#2c5f8a",
+    accent: "#d0e8f5",
+    goals: [
+      "Build to 25–28 miles/week by end of phase",
+      "Introduce Wednesday medium-long run",
+      "Begin practicing race nutrition on long runs",
+      "Reach 167–169 lbs",
+    ],
+    weeklySchedule: [
+      {
+        week: "Week 6", label: "Aug 3 – Aug 9", total: "17 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 6, notes: "Early AM. Comfortable effort. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM. Easy recovery pace." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 7, notes: "Trail. Easy effort. Hike climbs." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Rest or short walk." },
+        ]
+      },
+      {
+        week: "Week 7", label: "Aug 10 – Aug 16", total: "19 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 7, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 8, notes: "First run over 90 min. Start fueling at 45-min mark." },
+          { day: "Sun", activity: "Rest or Easy", miles: null, notes: "Optional 2–3 mile walk/jog. Full rest if needed." },
+        ]
+      },
+      {
+        week: "Week 8", label: "Aug 17 – Aug 23", total: "16 miles (recovery)",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 6, notes: "Early AM. Pull back effort. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 6, notes: "Recovery long run. Easy pace, enjoy it." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+        ]
+      },
+      {
+        week: "Week 9", label: "Aug 24 – Aug 30", total: "23 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 8, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 11, notes: "3+ hours on feet. Practice nutrition every 45 min. Hike climbs freely." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+        ]
+      },
+      {
+        week: "Week 10", label: "Aug 31 – Sept 6", total: "26 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 9, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 13, notes: "Biggest run so far. Seek out elevation. Carry 1.5L water." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+        ]
+      },
+      {
+        week: "Week 11", label: "Sept 7 – Sept 13", total: "16 miles (recovery)",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 6, notes: "Early AM. Easy effort. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 3, notes: "Early AM. Short and easy." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 7, notes: "Recovery week long run. Relaxed pace." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest. Body is consolidating gains." },
+        ]
+      },
+    ],
+    cals: { easy: "2,200–2,400", longRun: "2,700–3,000", label: "Cut transitioning to maintenance by Week 11" },
+    macros: { protein: "145–160g", carbs: "270–320g", fat: "60–70g" },
+    nutrition: [
+      { title: "Easy days: 2,200–2,400 cal", detail: "Modest deficit continues on non-long-run days. Protein: 145–160g. Carbs: 270–320g. Fat: 60–70g. As mileage grows, calorie needs grow with it." },
+      { title: "Long run days: 2,700–3,000 cal", detail: "Saturday runs of 7–13 miles require serious fuel. Increase carbs significantly. Do not restrict. Under-fueling now means poor adaptation and injury risk." },
+      { title: "Pre-run fueling", detail: "Eat a carb-rich meal 90–120 min before long runs. Oatmeal with banana and almond butter is ideal. Never run fasted on long days." },
+      { title: "During-run nutrition practice", detail: "Begin fueling at 45-min mark on runs over 90 minutes. Practice with dates, rice balls, banana pieces, or vegan gels. Target 150–200 calories/hour." },
+      { title: "Recovery nutrition window", detail: "Within 30 min of finishing long runs: 20–30g protein + carbs. Example: smoothie with pea protein, banana, oat milk, frozen berries." },
+      { title: "Electrolytes on long runs", detail: "Carry sodium (300–500mg/hour in summer heat) on runs over 2 hours. Medjool dates + a pinch of salt work well. Sweat rate is high in August/September in Tennessee." },
+      { title: "Weight target", detail: "Goal: reach 167–169 lbs by end of Phase 2. Progress should be steady but not aggressive. If weight stalls, do not cut calories further — reassess food quality first." },
+    ],
+    keyNotes: "The Wednesday medium-long run after CrossFit Tuesday is intentionally hard — this tired-legs training mimics the fatigue you will feel in the back half of the 50K. The Saturday trail run is your most important workout every week. Treat it as sacred.",
+  },
+  {
+    id: 3,
+    name: "Phase 3: Peak Training",
+    weeks: "Weeks 12–17",
+    dates: "Sept 14 – Oct 25",
+    subtitle: "The hard work. Where the race is won.",
+    color: "#7a3b1e",
+    accent: "#f5e6d0",
+    goals: [
+      "Peak at 30–35 miles/week",
+      "Complete 2 runs of 18–22 miles",
+      "Simulate race conditions on Week 15 long run",
+      "Reach and maintain 163–165 lbs",
+    ],
+    weeklySchedule: [
+      {
+        week: "Week 12", label: "Sept 14 – Sept 20", total: "28 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm — scale if legs are wrecked" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 9, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 5, notes: "Early AM. Easy recovery effort." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 14, notes: "Seek out climbs. Practice race nutrition. Bring layers — mornings are cooling." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+        ]
+      },
+      {
+        week: "Week 13", label: "Sept 21 – Sept 27", total: "31 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 10, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 5, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 16, notes: "First real ultra-distance training run. 3.5–4+ hours. Full nutrition protocol." },
+          { day: "Sun", activity: "Recovery Run", miles: 3, notes: "Very easy. Back-to-back training begins." },
+        ]
+      },
+      {
+        week: "Week 14", label: "Sept 28 – Oct 4", total: "24 miles (recovery)",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 8, notes: "Early AM. Easier effort this week. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 12, notes: "Recovery long run. Easy pace. Enjoy it." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+        ]
+      },
+      {
+        week: "Week 15", label: "Oct 5 – Oct 11", total: "33 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 10, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 5, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm. Rest well tonight." },
+          { day: "Sat", activity: "RACE SIMULATION", miles: 20, notes: "6:30am start. Full gear. Full nutrition. Cold layers. This is your dress rehearsal for Fall Creek." },
+          { day: "Sun", activity: "Recovery Run", miles: 3, notes: "Very easy shakeout. Back-to-back fatigue training." },
+        ]
+      },
+      {
+        week: "Week 16", label: "Oct 12 – Oct 18", total: "31 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm — scale intensity after big weekend" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 10, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 5, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 18, notes: "Second peak long run. Seek elevation. Full race nutrition practice." },
+          { day: "Sun", activity: "Recovery Run", miles: 3, notes: "Very easy. Final back-to-back of the training cycle." },
+        ]
+      },
+      {
+        week: "Week 17", label: "Oct 19 – Oct 25", total: "22 miles (taper entry)",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 7, notes: "Early AM. Reduce effort — taper begins. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 11, notes: "Controlled effort. No heroics. Body is starting to rest." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+        ]
+      },
+    ],
+    cals: { easy: "3,000–3,200", longRun: "3,500–3,800", label: "Maintenance — performance fueling takes over" },
+    macros: { protein: "155–170g", carbs: "370–420g", fat: "75–90g" },
+    nutrition: [
+      { title: "Easy days: 3,000–3,200 cal", detail: "You are now in maintenance — no more deficit. Protein: 155–170g. Carbs: 370–420g. Fat: 75–90g. Your body needs fuel to handle 30–35 miles/week plus CrossFit." },
+      { title: "Long run days (16–20+ miles): 3,500–3,800 cal", detail: "Peak long run days require aggressive fueling. Load carbs the night before. Fuel during the run every 30–45 min. Recover with protein and carbs within 30 min of finishing." },
+      { title: "Race nutrition dialed in", detail: "By week 13, you should have a practiced nutrition plan for every 45 minutes of running. Know exactly what you are eating and carrying at Fall Creek." },
+      { title: "Drop bag planning", detail: "Fall Creek aid stations — build your drop bag now. Vegan-specific items: rice balls with soy sauce, boiled potatoes with salt, dates, almond butter packets, vegan gels, backup dry clothes." },
+      { title: "Carb loading practice", detail: "Practice carb loading the Friday before your 20-mile run in Week 15. High-carb vegan meals: pasta with marinara, rice with roasted vegetables, sweet potatoes." },
+      { title: "Weight target", detail: "You should reach 163–165 lbs around week 13. After that, stop trying to lose weight. Fueling for performance is the only priority now." },
+      { title: "Cold weather hydration", detail: "You will feel less thirsty in cold weather but still lose fluids. Force fluids even when you do not want them. Practice drinking cold in cool morning conditions." },
+    ],
+    keyNotes: "Week 15 is your most important training week. The 20-mile trail run should mimic race day exactly: 6:30am start, full gear, full nutrition plan, cold morning layers. This is your dress rehearsal. If something goes wrong in training, you want to discover it here — not at mile 20 of the race.",
+  },
+  {
+    id: 4,
+    name: "Phase 4: Taper",
+    weeks: "Weeks 18–21",
+    dates: "Oct 26 – Nov 21",
+    subtitle: "Trust the work. Arrive fresh.",
+    color: "#5a4a8a",
+    accent: "#e8e0f5",
+    goals: [
+      "Reduce volume while maintaining frequency",
+      "Arrive at the start line healthy, rested, and at 163–165 lbs",
+      "Finalize all race logistics, gear, and nutrition",
+      "Mental preparation",
+    ],
+    weeklySchedule: [
+      {
+        week: "Week 18", label: "Oct 26 – Nov 1", total: "22 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Easy Run + CrossFit", miles: 6, notes: "Early AM. Taper begins — easier effort. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 12, notes: "Controlled effort. This is the last big run." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+        ]
+      },
+      {
+        week: "Week 19", label: "Nov 2 – Nov 8", total: "17 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Easy Run + CrossFit", miles: 5, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 3, notes: "Early AM. Short and relaxed." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Trail Run", miles: 9, notes: "Easy effort. You will feel restless. That is correct." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+        ]
+      },
+      {
+        week: "Week 20", label: "Nov 9 – Nov 15", total: "11 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm — keep it light" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm — light effort" },
+          { day: "Wed", activity: "Easy Run + CrossFit", miles: 3, notes: "Early AM. Very easy. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 2, notes: "Early AM. Shake out the legs." },
+          { day: "Fri", activity: "CrossFit or Rest", miles: null, notes: "Light CrossFit or full rest." },
+          { day: "Sat", activity: "Trail Run", miles: 6, notes: "Easy trail run. Legs should be feeling springy and fresh." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+        ]
+      },
+      {
+        week: "Week 21 — RACE WEEK", label: "Nov 16 – Nov 21", total: "3 miles + RACE",
+        days: [
+          { day: "Mon", activity: "CrossFit (light)", miles: null, notes: "Very light effort only. No heroics." },
+          { day: "Tue", activity: "CrossFit (light)", miles: null, notes: "Last CrossFit before race. Light." },
+          { day: "Wed", activity: "Easy Run", miles: 3, notes: "Early AM. 3 easy miles to stay loose." },
+          { day: "Thu", activity: "Rest", miles: null, notes: "Full rest. Pack your drop bag." },
+          { day: "Fri", activity: "Rest", miles: null, notes: "Full rest. Drive to Fall Creek Falls. Sleep early." },
+          { day: "Sat", activity: "RACE DAY", miles: null, notes: "6:30am start. Fall Creek 100 — 50K. You are ready." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "You just ran a 50K. Rest everything." },
+        ]
+      },
+    ],
+    cals: { easy: "2,700–3,000", longRun: "3,200–3,500 (race week)", label: "Maintenance + glycogen loading into race" },
+    macros: { protein: "155–165g", carbs: "320–380g", fat: "70–80g" },
+    nutrition: [
+      { title: "Weeks 18–20: 2,700–3,000 cal", detail: "Volume drops but do not slash calories. Keep protein at 155–165g to maintain muscle. Keep carbs at 320–380g — your body is storing glycogen. Fat: 70–80g." },
+      { title: "Race week (Wk 21): 3,200–3,500 cal", detail: "Carb load Wednesday through Friday. Increase carbs to 450–500g/day. Reduce fat slightly. Keep protein stable. Do not eat anything new or unusual." },
+      { title: "Race week carb loading meals", detail: "Wednesday–Friday: rice with roasted vegetables, pasta with marinara, oatmeal with banana and maple syrup, sweet potatoes. Avoid high-fiber raw vegetables the day before." },
+      { title: "Race morning (4:30am): 600–800 cal", detail: "Oatmeal with banana, almond butter, maple syrup. Coffee if that is your routine — do not change it race morning. Eat 2 full hours before start." },
+      { title: "Race day fueling plan", detail: "Fuel every 30–45 min from mile 5 onward. Do not wait until you are hungry — that is too late. Alternate savory and sweet. Target 150–200 cal/hour. Carry backup calories beyond what you think you need." },
+      { title: "Taper madness", detail: "You will feel heavy, sluggish, and undertrained in weeks 19–20. This is normal and universal. Your body is storing glycogen and repairing tissue. Do not add miles back in." },
+    ],
+    keyNotes: "The taper is part of your training. Fitness gains from your peak weeks are still being absorbed. Arriving to the start line at 165 lbs, healthy, and rested is the entire goal of these four weeks. Resist every urge to do more.",
+  },
+];
+
+const warmupData = {
+  weekday: {
+    title: "Weekday Easy Run Warmup",
+    subtitle: "5–7 minutes · Do this before every Wed & Thu morning run",
+    color: "#4a7c59",
+    note: "Your body has been horizontal for 7+ hours. Cold muscles on pavement are injury waiting to happen. This takes 5 minutes and makes every run feel better from step one.",
+    steps: [
+      {
+        name: "Walk or slow jog",
+        duration: "2 min",
+        reps: null,
+        desc: "Start every single run at a walk or shuffle for the first 2 minutes. No exceptions. This is part of the warmup, not wasted time.",
+        icon: "🚶",
+      },
+      {
+        name: "Leg swings — forward & back",
+        duration: null,
+        reps: "10 each leg",
+        desc: "Hold a wall or post. Swing one leg forward and back like a pendulum. Loose and controlled. Opens the hip flexors and hamstrings.",
+        icon: "🦵",
+      },
+      {
+        name: "Leg swings — side to side",
+        duration: null,
+        reps: "10 each leg",
+        desc: "Face the wall. Swing leg across your body and out to the side. Wakes up the hip abductors — critical for trail stability.",
+        icon: "🦵",
+      },
+      {
+        name: "Ankle circles",
+        duration: null,
+        reps: "10 each direction, each foot",
+        desc: "Lift one foot and rotate the ankle slowly through its full range. Reduces ankle roll risk — especially important on uneven morning pavement.",
+        icon: "🦶",
+      },
+      {
+        name: "High knees in place",
+        duration: "30 sec",
+        reps: null,
+        desc: "Drive knees up toward your chest at a moderate pace. Gets blood moving and activates your hip flexors before you ask them to run.",
+        icon: "🏃",
+      },
+      {
+        name: "Butt kicks in place",
+        duration: "30 sec",
+        reps: null,
+        desc: "Kick your heels up toward your glutes. Activates hamstrings and gets your running stride mechanics firing.",
+        icon: "🏃",
+      },
+      {
+        name: "Begin run — easy",
+        duration: "First 5 min",
+        reps: null,
+        desc: "Start at a pace slower than you think you need to. Your warmup continues for the first 5 minutes of running. Let the body ease in.",
+        icon: "✅",
+      },
+    ],
+  },
+  longRun: {
+    title: "Pre-Long Run Warmup",
+    subtitle: "8–10 minutes · Every Saturday trail run",
+    color: "#2c5f8a",
+    note: "Trail running demands more from your hips, glutes, and ankles than road running. A cold hip flexor on a descent or a cold glute on a climb are two of the most common trail injury setups. Don't skip this.",
+    steps: [
+      {
+        name: "Walk 3–5 minutes",
+        duration: "3–5 min",
+        reps: null,
+        desc: "Start with a brisk walk from the trailhead or parking area. Use this time to mentally review your nutrition plan and route.",
+        icon: "🚶",
+      },
+      {
+        name: "Leg swings — forward & back",
+        duration: null,
+        reps: "15 each leg",
+        desc: "Bigger range of motion than your weekday version. Let the leg swing fully. You want the hip flexors and hamstrings loose for climbing.",
+        icon: "🦵",
+      },
+      {
+        name: "Leg swings — side to side",
+        duration: null,
+        reps: "15 each leg",
+        desc: "Lateral hip stability is everything on trail. These protect your IT band and outer knee on uneven terrain.",
+        icon: "🦵",
+      },
+      {
+        name: "Hip circles",
+        duration: null,
+        reps: "10 each direction",
+        desc: "Hands on hips, feet shoulder-width. Rotate your hips in large slow circles. Lubricates the hip joint before you ask it to work for 3–6 hours.",
+        icon: "🔄",
+      },
+      {
+        name: "Glute activation — clamshells",
+        duration: null,
+        reps: "15 each side",
+        desc: "Lie on your side, knees bent at 90°. Open and close your top knee like a clamshell while keeping feet together. Fires the glute medius — your primary trail stabilizer.",
+        icon: "🍑",
+      },
+      {
+        name: "Ankle circles + calf raises",
+        duration: null,
+        reps: "10 circles each + 15 calf raises",
+        desc: "Rotate each ankle, then do single-leg calf raises on a slight incline if available. Prepares Achilles and ankles for the constant micro-adjustments of trail terrain.",
+        icon: "🦶",
+      },
+      {
+        name: "Inchworms",
+        duration: null,
+        reps: "5 reps",
+        desc: "Stand tall, hinge forward and walk hands out to a plank, hold 2 sec, walk feet to hands, stand. Full-body activation — hamstrings, core, shoulders all at once.",
+        icon: "🐛",
+      },
+      {
+        name: "Lateral shuffles",
+        duration: "20 yards each direction",
+        reps: null,
+        desc: "Low shuffle side to side. Gets the lateral movement patterns firing. Trail running is never just straight ahead.",
+        icon: "↔️",
+      },
+      {
+        name: "Begin trail run — very easy",
+        duration: "First 10 min",
+        reps: null,
+        desc: "The first mile of every long run should feel almost embarrassingly slow. You have hours ahead of you. Let the body ease in completely.",
+        icon: "✅",
+      },
+    ],
+  },
+  phaseNotes: [
+    { phase: "Phase 1 (Weeks 1–5)", note: "Do the full warmup and cooldown every single time, no exceptions. Your body is relearning how to run. These routines are not optional — they are the difference between adapting and getting hurt." },
+    { phase: "Phase 2 (Weeks 6–11)", note: "Add glute activation to your weekday warmup as Wednesday runs get longer. Add foam rolling to your post-long-run cooldown — calves and IT band especially as mileage builds." },
+    { phase: "Phase 3 (Weeks 12–17)", note: "Peak training means peak recovery importance. Add inchworms to your weekday warmup. Spend 15 full minutes on the post-long-run routine. Your ability to recover between weeks determines your race fitness." },
+    { phase: "Phase 4 (Taper)", note: "Maintain full routines through the taper. Race morning: full pre-long-run warmup starting at 6:00am. Race finish: walk 10 minutes, then do the full post-run cooldown before sitting down for good." },
+  ],
+  cooldownWeekday: {
+    title: "Post Easy Run Cooldown",
+    subtitle: "5–8 minutes · After every Wed & Thu run",
+    note: "Static stretching after a run — when muscles are warm — is where flexibility is actually built. This also directly affects how you feel at CrossFit later the same day on Wednesdays.",
+    steps: [
+      { name: "Walk to finish", duration: "2 min", reps: null, desc: "End every run with a 2-minute walk. Don't stop dead. Let your heart rate come down gradually before you stretch anything.", icon: "🚶" },
+      { name: "Standing quad stretch", duration: "30 sec each", reps: null, desc: "Hold a wall, pull one foot to your glute. Keep your knee pointed down, not flared out. Your quads absorb enormous impact running — they need this.", icon: "🦵" },
+      { name: "Standing hip flexor stretch", duration: "30 sec each", reps: null, desc: "Lunge position, drop your back knee to the ground, shift weight forward. Tight hip flexors are a primary cause of lower back pain and poor running form.", icon: "🧘" },
+      { name: "Calf stretch — straight leg", duration: "30 sec each", reps: null, desc: "Hands on wall, one leg straight behind you, heel pressed to ground. Essential for Achilles health — your most vulnerable tendon in this training plan.", icon: "🦶" },
+      { name: "Calf stretch — bent knee", duration: "30 sec each", reps: null, desc: "Same position but bend the back knee slightly. This targets the soleus (deeper calf) and the Achilles insertion. Do both versions every time.", icon: "🦶" },
+      { name: "Seated hamstring stretch", duration: "30 sec each", reps: null, desc: "Sit on the ground, one leg extended, reach toward your foot. Hold it — don't bounce. Tight hamstrings cause knee pain and back pain over long miles.", icon: "🧘" },
+      { name: "Nutrition window", duration: "Within 30 min", reps: null, desc: "Within 30 minutes of finishing: consume protein + carbs. Smoothie with pea protein, banana, oat milk. This window matters — don't skip it.", icon: "🥤" },
+    ],
+  },
+  cooldownLongRun: {
+    title: "Post Long Run Recovery",
+    subtitle: "12–15 minutes · Every Saturday after trail run",
+    note: "The 15 minutes after a long run are some of the highest-leverage time in your entire training week. What you do here directly determines how you feel Monday and Tuesday at CrossFit — and how well you recover week over week.",
+    steps: [
+      { name: "Walk — don't stop", duration: "5 min", reps: null, desc: "After finishing, walk for at least 5 minutes. Your blood is pooled in your legs. Walking keeps it moving and prevents post-run lightheadedness. Eat something within this window.", icon: "🚶" },
+      { name: "Foam roll — calves", duration: "60 sec each", reps: null, desc: "Slow passes up and down the calf. Pause on any tender spots for 5–10 seconds. Your calves take the most repetitive stress on trail — they will be tight.", icon: "🔵" },
+      { name: "Foam roll — IT band", duration: "60 sec each", reps: null, desc: "Side-lying, roll from just below the hip to just above the knee. This will be uncomfortable. That is expected. A tight IT band causes knee pain — address it before it becomes a problem.", icon: "🔵" },
+      { name: "Foam roll — quads", duration: "60 sec each", reps: null, desc: "Face down, roll from hip crease to knee. Slow and deliberate. After long downhills, your quads take a battering — especially relevant for Fall Creek's terrain.", icon: "🔵" },
+      { name: "Standing hip flexor stretch", duration: "60 sec each", reps: null, desc: "Deep lunge, back knee down, shift weight forward and reach the same arm as the back knee overhead. Hold for a full minute each side after a long run.", icon: "🧘" },
+      { name: "Pigeon pose", duration: "90 sec each", reps: null, desc: "From a plank, bring one knee forward behind your wrist. Lower your hips. This is the single best post-run hip stretch. It will feel intense after a long trail run — that means you need it.", icon: "🕊️" },
+      { name: "Supine hamstring stretch", duration: "45 sec each", reps: null, desc: "Lie on your back, loop a towel or strap around one foot and pull the leg toward you. Keep the other leg flat on the ground. Gentler on the lower back than seated versions.", icon: "🧘" },
+      { name: "Calf stretch — both versions", duration: "45 sec each", reps: null, desc: "Straight leg then bent knee, same as the weekday routine. Do both sides, both versions. Non-negotiable after trail runs.", icon: "🦶" },
+      { name: "Legs up the wall", duration: "5 min", reps: null, desc: "Lie on your back with your legs resting up a wall. Reduces swelling, drains lactic acid, calms the nervous system. Optional but extremely effective after runs over 2 hours.", icon: "🧱" },
+      { name: "Recovery nutrition", duration: "Within 30 min", reps: null, desc: "500–700 calories: pea protein smoothie + a carb-rich snack, or a full meal. This is not optional. Your muscles are in an active repair window for the next 2 hours.", icon: "🥤" },
+    ],
+  },
+};
+
+const raceDay = {
+  title: "Race Day — November 21, 2026",
+  sections: [
+    {
+      heading: "Morning Timeline",
+      items: [
+        "4:00am — Wake up. Minimal stress. Everything is packed already.",
+        "4:30am — Eat full breakfast: oatmeal, banana, almond butter, coffee.",
+        "5:30am — Arrive at start. Pick up bib. Gear check. Drop bag drop.",
+        "6:00am — Line up. Warm up lightly. Layer up — it will be cold.",
+        "6:30am — START. Go out conservative. The first 3 miles will feel easy. That's a trap.",
+      ],
+    },
+    {
+      heading: "Pacing Strategy",
+      items: [
+        "Miles 1–10: Controlled and conversational. Hike every climb. Don't race anyone.",
+        "Miles 10–20: Settle into your rhythm. This is where your training miles pay off.",
+        "Miles 20–28: Stay on nutrition. Mental toughness phase. One mile at a time.",
+        "Miles 28–31: You're going to finish. Run what you can, hike what you need.",
+      ],
+    },
+    {
+      heading: "Gear Checklist",
+      items: [
+        "Layering system: base layer + mid layer + wind shell — temperature swings 20–60°F",
+        "Gloves and hat for the cold morning start",
+        "Trail shoes with grip — the course is rugged in sections",
+        "Hydration vest with 1.5–2L capacity",
+        "Headlamp (for early start darkness — not needed if finishing well before dark)",
+        "Drop bag: dry socks, dry shirt, extra food, trekking poles if desired",
+        "Phone fully charged, emergency contacts noted",
+      ],
+    },
+  ],
+};
+
+const dayColors = {
+  "CrossFit": "#e8a020",
+  "CrossFit (light)": "#e8a020",
+  "CrossFit or Rest": "#e8a020",
+  "Rest": "#ccc",
+};
+
+
+// ── State ──────────────────────────────────────────────────────────
+let S = { pi: 0, tab: 'schedule', wi: 0, checked: {} };
+try { const s = localStorage.getItem('fc50k'); if(s) S.checked = JSON.parse(s); } catch(e) {}
+function save() { try { localStorage.setItem('fc50k', JSON.stringify(S.checked)); } catch(e) {} }
+function toggleDay(pi,wi,di) { const k=`p${pi}-w${wi}-d${di}`; S.checked[k]=!S.checked[k]; save(); render(); }
+function done(pi,wi,di) { return !!S.checked[`p${pi}-w${wi}-d${di}`]; }
+function weekDone(pi,wi,n) { let c=0; for(let d=0;d<n;d++) if(S.checked[`p${pi}-w${wi}-d${d}`])c++; return c; }
+
+// ── Helpers ────────────────────────────────────────────────────────
+function dc(activity, phaseColor) {
+  if(activity==='Rest') return '#ccc';
+  if(activity.startsWith('CrossFit')) return '#e8a020';
+  if(activity==='RACE DAY') return '#8a3a3a';
+  return phaseColor;
+}
+function h(tag, cls, style, ...kids) {
+  const e = document.createElement(tag);
+  if(cls) e.className = cls;
+  if(style) Object.assign(e.style, style);
+  for(const k of kids.flat(99)) {
+    if(k==null) continue;
+    e.appendChild(typeof k==='string' ? document.createTextNode(k) : k);
+  }
+  return e;
+}
+function d(cls,style,...kids) { return h('div',cls,style,...kids); }
+function s(cls,style,...kids) { return h('span',cls,style,...kids); }
+function btn(cls,style,onclick,...kids) {
+  const e=h('button',cls,style,...kids);
+  e.onclick=onclick;
+  return e;
+}
+
+// ── Render ─────────────────────────────────────────────────────────
+function render() {
+  const app = document.getElementById('app');
+  while(app.firstChild) app.removeChild(app.firstChild);
+
+  app.appendChild(renderHeader());
+  app.appendChild(renderPhaseNav());
+  const content = d('content',null);
+  if(S.pi===4) content.appendChild(renderRaceDay());
+  else content.appendChild(renderPhase(phases[S.pi], S.pi));
+  app.appendChild(content);
+
+  // scroll to top on phase/tab change
+  window.scrollTo(0,0);
+}
+
+function renderHeader() {
+  const wrap = d('header',null);
+  wrap.appendChild(d('header-eyebrow',null,'Fall Creek Falls, Tennessee'));
+  wrap.appendChild(h('h1',null,null,'Fall Creek 100 · 50K'));
+  wrap.appendChild(d('header-sub',null,'21-Week Training Plan · June 29 – November 21, 2026'));
+  const stats = d('header-stats',null);
+  [['Race Day','Nov 21, 2026'],['Start','6:30am'],['Distance','50K'],['Elev.','3,100ft'],['Goal Wt','≤165 lbs'],['Cutoff','18 hrs']].forEach(([l,v])=>{
+    const st = d('stat',null);
+    st.appendChild(h('label',null,null,l));
+    st.appendChild(h('span',null,null,v));
+    stats.appendChild(st);
+  });
+  wrap.appendChild(stats);
+  return wrap;
+}
+
+function renderPhaseNav() {
+  const nav = d('phase-nav',null);
+  phases.forEach((ph,i)=>{
+    const isA = S.pi===i;
+    const b = btn('phase-btn'+(isA?' active':''), isA?{background:ph.color,borderBottomColor:ph.color}:{},
+      ()=>{ S.pi=i; S.tab='schedule'; S.wi=0; render(); },
+      ph.name.split(':')[0], h('small',null,null,ph.weeks)
+    );
+    nav.appendChild(b);
+  });
+  const isR = S.pi===4;
+  nav.appendChild(btn('phase-btn'+(isR?' active':''), isR?{background:'#8a3a3a',borderBottomColor:'#8a3a3a'}:{},
+    ()=>{ S.pi=4; render(); }, 'Race Day', h('small',null,null,'Nov 21')
+  ));
+  return nav;
+}
+
+function renderPhase(phase, pi) {
+  const wrap = d(null,null);
+  wrap.appendChild(d('eyebrow',{color:phase.color},`${phase.weeks} · ${phase.dates}`));
+  wrap.appendChild(h('h2','phase-title',null,phase.name));
+  wrap.appendChild(d('phase-sub',null,phase.subtitle));
+
+  // Goals
+  const gb = d('goals-box',{background:phase.accent,border:`1px solid ${phase.color}22`});
+  gb.appendChild(d('goals-lbl',{color:phase.color},'Phase Goals'));
+  phase.goals.forEach(g=>{
+    const row=d('goal-row',null);
+    row.appendChild(d('goal-chk',{color:phase.color},'✓'));
+    row.appendChild(d('goal-txt',null,g));
+    gb.appendChild(row);
+  });
+  wrap.appendChild(gb);
+
+  // Tabs
+  const tb = d('tab-bar',null);
+  [['schedule','Weekly Schedule'],['mileage','Mileage'],['warmup','Pre/Post Run'],['nutrition','Nutrition']].forEach(([id,lbl])=>{
+    const isA=S.tab===id;
+    tb.appendChild(btn('tab-btn'+(isA?' active':''), isA?{color:phase.color,borderBottomColor:phase.color}:{}, ()=>{S.tab=id;render();}, lbl));
+  });
+  wrap.appendChild(tb);
+
+  if(S.tab==='schedule') wrap.appendChild(renderSchedule(phase,pi));
+  else if(S.tab==='mileage') wrap.appendChild(renderMileage(phase,pi));
+  else if(S.tab==='warmup') wrap.appendChild(renderWarmup(phase,pi));
+  else if(S.tab==='nutrition') wrap.appendChild(renderNutrition(phase,pi));
+  return wrap;
+}
+
+function renderSchedule(phase, pi) {
+  const wrap = d(null,null);
+  // Pills
+  const pills = d('week-pills',null);
+  phase.weeklySchedule.forEach((w,wi)=>{
+    const c=weekDone(pi,wi,w.days.length), all=c===w.days.length;
+    const isA=S.wi===wi;
+    const b=btn('week-pill'+(isA?' active':''),{
+      background:isA?phase.color:all?phase.color+'22':'white',
+      color:isA?'white':'#555',
+      borderColor:isA?phase.color:all?phase.color:'#ddd'
+    },()=>{S.wi=wi;render();}, w.week.replace('Week ','Wk '));
+    if(c>0) b.appendChild(s(null,{marginLeft:'4px',fontSize:'9px',background:all?(isA?'rgba(255,255,255,0.3)':phase.color):'#aaa',color:'white',borderRadius:'10px',padding:'1px 4px',fontWeight:700}, all?'✓':`${c}/${w.days.length}`));
+    pills.appendChild(b);
+  });
+  wrap.appendChild(pills);
+
+  const w=phase.weeklySchedule[S.wi];
+  const c=weekDone(pi,S.wi,w.days.length), all=c===w.days.length;
+
+  // Week header
+  const wh=d('week-header',null);
+  const wt=d(null,null,d('week-title-txt',null,w.week),d('week-dates-txt',null,w.label));
+  const wm=d('week-meta',null,d('week-count',null,`${c}/${w.days.length} days`),d('week-badge',{background:phase.color},w.total));
+  wh.appendChild(wt); wh.appendChild(wm);
+  wrap.appendChild(wh);
+
+  // Progress
+  const pb=d('progress-bar',null,d('progress-fill',{width:`${(c/w.days.length)*100}%`,background:phase.color}));
+  wrap.appendChild(pb);
+
+  // Days
+  w.days.forEach((day,di)=>{
+    const isChk=done(pi,S.wi,di);
+    const row=d('day-row',{
+      background:isChk?phase.color+'0d':(day.activity==='Rest'?'#f9f9f9':'white'),
+      borderColor:isChk?phase.color+'44':'#e8e8e8',
+      borderLeftColor:isChk?phase.color:dc(day.activity,phase.color)
+    });
+    row.onclick=()=>toggleDay(pi,S.wi,di);
+    const cb=d('cb',{background:isChk?phase.color:'white',borderColor:isChk?phase.color:'#ccc'},isChk?'✓':'');
+    row.appendChild(cb);
+    row.appendChild(d('day-lbl',{color:isChk?'#bbb':'#444'},day.day));
+    const info=d(null,null);
+    const act=d('day-act',{color:isChk?'#bbb':(day.activity==='Rest'?'#aaa':'#1a1a1a'),textDecoration:isChk?'line-through':'none'},day.activity);
+    info.appendChild(act);
+    info.appendChild(d('day-notes-txt',null,day.notes));
+    row.appendChild(info);
+    row.appendChild(d('day-mi',{color:isChk?'#ccc':(day.miles?phase.color:'#ccc')},day.miles?`${day.miles} mi`:'—'));
+    wrap.appendChild(row);
+  });
+
+  if(all) wrap.appendChild(d('week-complete',{background:phase.accent,border:`1px solid ${phase.color}44`,color:phase.color},'✓ Week complete — nice work!'));
+  if(S.wi===phase.weeklySchedule.length-1) {
+    const cn=d('coach-note',null,d('cn-lbl',null,"Coach's Note"),d('cn-txt',null,phase.keyNotes));
+    wrap.appendChild(cn);
+  }
+  return wrap;
+}
+
+function renderMileage(phase, pi) {
+  const wrap=d(null,null);
+  const totals=phase.weeklySchedule.map(w=>parseFloat(w.total.replace(/[^0-9.]/g,''))||0);
+  const mx=Math.max(...totals);
+  phase.weeklySchedule.forEach((w,wi)=>{
+    const row=d('mi-row',null);
+    const top=d('mi-top',null,d('mi-wk',null,w.week),d('mi-total',{color:phase.color},w.total));
+    row.appendChild(top);
+    const dg=d('day-grid',null);
+    w.days.forEach(day=>{
+      const cell=d('day-cell',null,d('dc-lbl',null,day.day));
+      const val=d('dc-val',{background:day.miles?phase.color:(day.activity==='Rest'?'#eee':'#fde8b0'),color:day.miles?'white':(day.activity==='Rest'?'#ccc':'#a07010')},day.miles?`${day.miles}`:(day.activity==='Rest'?'–':'CF'));
+      cell.appendChild(val);
+      dg.appendChild(cell);
+    });
+    row.appendChild(dg);
+    wrap.appendChild(row);
+  });
+  // Bar chart
+  const bc=d('bar-chart',null,d('bc-lbl',null,'Mileage Progression'));
+  const bars=d('bars',null);
+  totals.forEach((val,wi)=>{
+    const pct=mx>0?(val/mx)*100:0;
+    const col=d('bar-col',null,d('bar-fill',{height:`${pct}%`,background:phase.color}),d('bar-lbl',null,phase.weeklySchedule[wi].week.replace('Week ','W')));
+    bars.appendChild(col);
+  });
+  bc.appendChild(bars);
+  wrap.appendChild(bc);
+  wrap.appendChild(d('coach-note',{marginTop:'13px'},d('cn-lbl',null,"Coach's Note"),d('cn-txt',null,phase.keyNotes)));
+  return wrap;
+}
+
+function renderWarmup(phase, pi) {
+  const wrap=d(null,null);
+  const pn=warmupData.phaseNotes[pi];
+  if(pn) {
+    const box=d('pn-box',{background:phase.accent,border:`1px solid ${phase.color}33`},d('pn-icon',null,'📋'));
+    const txt=d(null,null,d('pn-title',{color:phase.color},pn.phase),d('pn-text',null,pn.note));
+    box.appendChild(txt);
+    wrap.appendChild(box);
+  }
+  wrap.appendChild(sectionDiv('Before You Run'));
+  [warmupData.weekday, warmupData.longRun].forEach(r=>wrap.appendChild(renderRoutine(r,r.color)));
+  wrap.appendChild(sectionDiv('After You Run'));
+  [[warmupData.cooldownWeekday,'#4a7c59'],[warmupData.cooldownLongRun,'#7a3b1e']].forEach(([r,c])=>wrap.appendChild(renderRoutine(r,c)));
+  return wrap;
+}
+
+function sectionDiv(txt) {
+  return d('sec-div',null,d('sec-div-txt',null,txt),d('sec-div-line',null));
+}
+
+function renderRoutine(routine, color) {
+  const wrap=d(null,{marginBottom:'26px'});
+  wrap.appendChild(d('routine-hdr',{borderLeftColor:color},d('routine-title',null,routine.title),d('routine-sub',{color:color},routine.subtitle)));
+  wrap.appendChild(d('routine-note',null,routine.note));
+  routine.steps.forEach(step=>{
+    const fin=step.icon==='✅'||step.icon==='🥤';
+    const row=d('step-row',{background:fin?'#f0faf4':'white',borderColor:fin?'#b0dfc0':'#e8e8e8',borderLeftColor:fin?'#4a7c59':color});
+    row.appendChild(d('step-icon',null,step.icon));
+    row.appendChild(d(null,null,d('step-name',null,step.name),d('step-desc',null,step.desc)));
+    row.appendChild(d('step-dur',{color:color},step.duration||step.reps||''));
+    wrap.appendChild(row);
+  });
+  return wrap;
+}
+
+function renderNutrition(phase, pi) {
+  const wrap=d(null,null);
+  const cb=d('cal-box',{background:phase.color},d('cal-lbl',null,`Daily Targets — ${phase.cals.label}`));
+  const cg=d('cal-grid',null);
+  [['Easy / CrossFit Days',phase.cals.easy],['Long Run Days',phase.cals.longRun]].forEach(([l,v])=>{
+    cg.appendChild(d('cal-card',null,d('cal-card-lbl',null,l),d('cal-card-val',null,v),d('cal-card-unit',null,'calories')));
+  });
+  cb.appendChild(cg);
+  const md=d('macro-div',null,d('macro-lbl',null,'Macros (Easy Days)'));
+  const mg=d('macro-grid',null);
+  [['Protein',phase.macros.protein],['Carbs',phase.macros.carbs],['Fat',phase.macros.fat]].forEach(([n,v])=>{
+    mg.appendChild(d('macro-card',null,d('macro-val',null,v),d('macro-name',null,n)));
+  });
+  md.appendChild(mg);
+  cb.appendChild(md);
+  wrap.appendChild(cb);
+  phase.nutrition.forEach(n=>{
+    wrap.appendChild(d('nutr-card',{borderLeftColor:phase.color},d('nutr-title',null,n.title),d('nutr-detail',null,n.detail)));
+  });
+  return wrap;
+}
+
+function renderRaceDay() {
+  const wrap=d(null,null,h('h2','race-h2',null,raceDay.title),d('race-sub',null,"You've done the work. This is just execution."));
+  raceDay.sections.forEach(sec=>{
+    const s=d('race-section',null,d('race-sec-title',null,sec.heading));
+    sec.items.forEach(item=>{
+      s.appendChild(d('race-item',null,d('race-dot',null),d('race-txt',null,item)));
+    });
+    wrap.appendChild(s);
+  });
+  return wrap;
+}
+
+// ── Install prompt ─────────────────────────────────────────────────
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', e=>{
+  e.preventDefault(); deferredPrompt=e;
+  document.getElementById('install-banner').style.display='flex';
+});
+document.getElementById('install-btn').onclick=()=>{ if(deferredPrompt) deferredPrompt.prompt(); };
+window.addEventListener('appinstalled',()=>{ document.getElementById('install-banner').style.display='none'; });
+
+// ── Service Worker ─────────────────────────────────────────────────
+if('serviceWorker' in navigator) {
+  const swCode = `
+const CACHE='fc50k-v1';
+self.addEventListener('install',e=>{self.skipWaiting();});
+self.addEventListener('activate',e=>{self.clients.claim();});
+self.addEventListener('fetch',e=>{
+  e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).then(res=>{
+    const clone=res.clone();
+    caches.open(CACHE).then(c=>c.put(e.request,clone));
+    return res;
+  }).catch(()=>caches.match('/'))));
+});`;
+  const blob=new Blob([swCode],{type:'application/javascript'});
+  navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(()=>{});
+}
+
+// ── Init ───────────────────────────────────────────────────────────
+render();
+</script>
+</body>
+</html>
