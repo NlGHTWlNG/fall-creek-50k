@@ -671,6 +671,153 @@ const warmupData = {
   },
 };
 
+const calisthenicsData = [
+  {
+    phase: "Phase 1 (Weeks 1–5)",
+    note: "Learn the movements and build the habit. Same routine every day. On days when CrossFit left you beat up, skip Block 2 and just do Blocks 1 and 3.",
+    blocks: [
+      {
+        title: "Block 1 — Activation",
+        duration: "3 minutes",
+        color: "#4a7c59",
+        exercises: [
+          { icon: "🍑", name: "Glute bridges", sets: "1 set", reps: "15 reps", desc: "Lie on your back, knees bent, feet flat. Drive hips up, squeeze glutes at the top, lower slowly. Your single most important injury prevention exercise given your knee history." },
+          { icon: "🦵", name: "Clamshells", sets: "1 set", reps: "15 each side", desc: "Lie on your side, knees bent at 90°. Open and close your top knee like a clamshell. Fires the glute medius which stabilizes your knee on every single trail step." },
+          { icon: "🐛", name: "Dead bugs", sets: "1 set", reps: "10 each side", desc: "Lie on your back, arms at ceiling, knees at 90°. Lower opposite arm and leg toward the floor without letting your lower back arch. Best core exercise for runners." },
+        ]
+      },
+      {
+        title: "Block 2 — Strength",
+        duration: "5 minutes",
+        color: "#2c5f8a",
+        exercises: [
+          { icon: "💪", name: "Push-ups", sets: "3 sets", reps: "10 reps, 20 sec rest", desc: "Standard or close grip. Upper body pressing strength supports your posture in the back half of long runs when everything wants to collapse forward." },
+          { icon: "🦵", name: "Bodyweight squats", sets: "1 set", reps: "20 reps slow", desc: "3 seconds down, pause at bottom, drive up. Not about difficulty — reinforcing good movement patterns and keeping your legs resilient." },
+          { icon: "⚖️", name: "Single-leg Romanian deadlift", sets: "1 set", reps: "10 each side", desc: "Stand on one leg, hinge forward at the hip, reach toward the floor, return. Trains single-leg stability and ankle proprioception — critical for trail running. Use a wall for balance if needed." },
+          { icon: "🧱", name: "Plank", sets: "1 set", reps: "45 seconds", desc: "Forearms on ground, body in a straight line. No sagging hips. Core endurance directly translates to maintaining form in the final miles of the 50K." },
+        ]
+      },
+      {
+        title: "Block 3 — Mobility",
+        duration: "2 minutes",
+        color: "#7a3b1e",
+        exercises: [
+          { icon: "🧘", name: "Hip flexor stretch", sets: null, reps: "30 sec each side", desc: "Deep lunge, back knee down, shift weight forward. Your hip flexors will tighten as mileage builds — daily attention here prevents lower back pain." },
+          { icon: "🔄", name: "Thoracic rotation", sets: null, reps: "10 each side", desc: "Sit cross-legged, hands behind your head, rotate your upper back left and right. Counteracts forward hunching from running and CrossFit. Keeps breathing mechanics open on long runs." },
+        ]
+      },
+    ]
+  },
+  {
+    phase: "Phase 2 (Weeks 6–11)",
+    note: "Progress the movements as your body adapts. Add 5 push-up reps per set. Upgrade glute bridges to single-leg version. Everything else stays the same.",
+    blocks: [
+      {
+        title: "Block 1 — Activation",
+        duration: "3 minutes",
+        color: "#4a7c59",
+        exercises: [
+          { icon: "🍑", name: "Single-leg glute bridges", sets: "1 set", reps: "12 each side", desc: "Progress from Phase 1. Same position but one foot lifted. Significantly harder — builds the unilateral hip strength you need for trail climbing." },
+          { icon: "🦵", name: "Clamshells", sets: "1 set", reps: "15 each side", desc: "Same as Phase 1. These never get old — do them every day through race week." },
+          { icon: "🐛", name: "Dead bugs", sets: "1 set", reps: "12 each side", desc: "Add 2 reps per side from Phase 1. Move slowly and with control — speed is not the goal here." },
+        ]
+      },
+      {
+        title: "Block 2 — Strength",
+        duration: "5 minutes",
+        color: "#2c5f8a",
+        exercises: [
+          { icon: "💪", name: "Push-ups", sets: "3 sets", reps: "15 reps, 20 sec rest", desc: "Up from 10 reps in Phase 1. If standard push-ups feel easy, try close grip or slow tempo (3 seconds down, 1 up)." },
+          { icon: "🦵", name: "Bodyweight squats", sets: "1 set", reps: "25 reps slow", desc: "Up from 20 reps. Same controlled tempo. If these feel too easy, add a 2-second pause at the bottom." },
+          { icon: "⚖️", name: "Single-leg Romanian deadlift", sets: "1 set", reps: "12 each side", desc: "Add 2 reps per side. You should need the wall less by now. Try without it if you're stable." },
+          { icon: "🧱", name: "Plank", sets: "1 set", reps: "60 seconds", desc: "Up from 45 seconds. Focus on breathing — inhale through nose, exhale through mouth. Don't hold your breath." },
+        ]
+      },
+      {
+        title: "Block 3 — Mobility",
+        duration: "2 minutes",
+        color: "#7a3b1e",
+        exercises: [
+          { icon: "🧘", name: "Hip flexor stretch", sets: null, reps: "40 sec each side", desc: "Up from 30 seconds. Add a slight reach overhead with the same arm as the back knee for a deeper stretch." },
+          { icon: "🔄", name: "Thoracic rotation", sets: null, reps: "12 each side", desc: "Add 2 reps each side. Slow and deliberate — feel each rotation through your mid-back." },
+        ]
+      },
+    ]
+  },
+  {
+    phase: "Phase 3 (Weeks 12–18)",
+    note: "Peak training phase — these routines protect you from breaking down. The side plank addition directly addresses IT band health. Do not skip Block 1 on any day.",
+    blocks: [
+      {
+        title: "Block 1 — Activation",
+        duration: "3 minutes",
+        color: "#4a7c59",
+        exercises: [
+          { icon: "🍑", name: "Single-leg glute bridges", sets: "1 set", reps: "15 each side", desc: "Up from 12 reps in Phase 2. These are now a non-negotiable daily movement given your weekly mileage." },
+          { icon: "🦵", name: "Clamshells", sets: "1 set", reps: "20 each side", desc: "Up from 15. At peak mileage your glute medius needs more daily activation to protect your knees on tired legs." },
+          { icon: "🐛", name: "Dead bugs", sets: "1 set", reps: "15 each side", desc: "Up from 12. Core stability is critical in the back half of 18–20 mile training runs. These directly help." },
+        ]
+      },
+      {
+        title: "Block 2 — Strength",
+        duration: "6 minutes",
+        color: "#2c5f8a",
+        exercises: [
+          { icon: "💪", name: "Push-ups", sets: "3 sets", reps: "15 reps, 20 sec rest", desc: "Maintain Phase 2 volume. Focus on quality over adding reps — your legs need the recovery budget more than your chest does right now." },
+          { icon: "🦵", name: "Bodyweight squats", sets: "1 set", reps: "30 reps slow", desc: "Up from 25. Final progression before taper." },
+          { icon: "⚖️", name: "Single-leg Romanian deadlift", sets: "1 set", reps: "15 each side", desc: "Up from 12. No wall — full balance challenge. This movement directly translates to trail stability on descents." },
+          { icon: "🧱", name: "Plank", sets: "1 set", reps: "75 seconds", desc: "Up from 60 seconds." },
+          { icon: "➡️", name: "Side plank", sets: null, reps: "30 sec each side", desc: "NEW in Phase 3. Directly targets the IT band stabilizers. Lie on your side, forearm on ground, lift hips. Keep body in a straight line. Critical addition given your IT band risk at peak mileage." },
+        ]
+      },
+      {
+        title: "Block 3 — Mobility",
+        duration: "2 minutes",
+        color: "#7a3b1e",
+        exercises: [
+          { icon: "🧘", name: "Hip flexor stretch", sets: null, reps: "45 sec each side", desc: "Up from 40 seconds. At peak mileage your hip flexors are under constant stress. This daily habit is protecting your lower back." },
+          { icon: "🔄", name: "Thoracic rotation", sets: null, reps: "15 each side", desc: "Up from 12. Upper back mobility keeps your running form efficient even when fatigued." },
+        ]
+      },
+    ]
+  },
+  {
+    phase: "Phase 4 — Taper (Weeks 19–21)",
+    note: "Pull back Block 2 to every other day. Blocks 1 and 3 remain daily through race week. Race morning: do Block 1 only as part of your pre-race warmup.",
+    blocks: [
+      {
+        title: "Block 1 — Activation (Daily)",
+        duration: "3 minutes",
+        color: "#4a7c59",
+        exercises: [
+          { icon: "🍑", name: "Single-leg glute bridges", sets: "1 set", reps: "12 each side", desc: "Pull back from peak volume. Keep these daily — they protect your knees all the way through race day." },
+          { icon: "🦵", name: "Clamshells", sets: "1 set", reps: "15 each side", desc: "Maintain. These take 90 seconds and have zero recovery cost. Do them every day including race morning." },
+          { icon: "🐛", name: "Dead bugs", sets: "1 set", reps: "10 each side", desc: "Pull back to Phase 1 volume. Keep the habit, reduce the stimulus." },
+        ]
+      },
+      {
+        title: "Block 2 — Strength (Every Other Day Only)",
+        duration: "4 minutes",
+        color: "#2c5f8a",
+        exercises: [
+          { icon: "💪", name: "Push-ups", sets: "2 sets", reps: "10 reps", desc: "Pull back to Phase 1 volume. Maintain the movement pattern without adding fatigue." },
+          { icon: "🦵", name: "Bodyweight squats", sets: "1 set", reps: "15 reps", desc: "Easy, controlled. Just keeping the legs moving." },
+          { icon: "🧱", name: "Plank", sets: "1 set", reps: "45 seconds", desc: "Back to Phase 1 duration. Taper means less, not zero." },
+        ]
+      },
+      {
+        title: "Block 3 — Mobility (Daily)",
+        duration: "2 minutes",
+        color: "#7a3b1e",
+        exercises: [
+          { icon: "🧘", name: "Hip flexor stretch", sets: null, reps: "45 sec each side", desc: "Maintain peak duration. Your hip flexors need daily attention right through race day." },
+          { icon: "🔄", name: "Thoracic rotation", sets: null, reps: "10 each side", desc: "Easy and relaxed. Keep the upper back mobile heading into race day." },
+        ]
+      },
+    ]
+  },
+];
+
 const raceDay = {
   title: "Race Day — November 21, 2026",
   sections: [
@@ -817,7 +964,7 @@ function renderPhase(phase, pi) {
 
   // Tabs
   const tb = d('tab-bar',null);
-  [['schedule','Weekly Schedule'],['mileage','Mileage'],['warmup','Pre/Post Run'],['nutrition','Nutrition']].forEach(([id,lbl])=>{
+  [['schedule','Weekly Schedule'],['mileage','Mileage'],['warmup','Pre/Post Run'],['calisthenics','Daily 10'],['nutrition','Nutrition']].forEach(([id,lbl])=>{
     const isA=S.tab===id;
     tb.appendChild(btn('tab-btn'+(isA?' active':''), isA?{color:phase.color,borderBottomColor:phase.color}:{}, ()=>{S.tab=id;render();}, lbl));
   });
@@ -826,6 +973,7 @@ function renderPhase(phase, pi) {
   if(S.tab==='schedule') wrap.appendChild(renderSchedule(phase,pi));
   else if(S.tab==='mileage') wrap.appendChild(renderMileage(phase,pi));
   else if(S.tab==='warmup') wrap.appendChild(renderWarmup(phase,pi));
+  else if(S.tab==='calisthenics') wrap.appendChild(renderCalisthenics(pi));
   else if(S.tab==='nutrition') wrap.appendChild(renderNutrition(phase,pi));
   return wrap;
 }
@@ -954,6 +1102,47 @@ function renderRoutine(routine, color) {
     row.appendChild(d('step-dur',{color:color},step.duration||step.reps||''));
     wrap.appendChild(row);
   });
+  return wrap;
+}
+
+function renderCalisthenics(pi) {
+  const wrap = d(null,null);
+  const data = calisthenicsData[pi];
+
+  // Phase note
+  const note = d('coach-note',{marginBottom:'18px'});
+  note.appendChild(d('cn-lbl',null,'Daily 10 — ' + data.phase));
+  note.appendChild(d('cn-txt',null,data.note));
+  wrap.appendChild(note);
+
+  // Blocks
+  data.blocks.forEach(block => {
+    // Block header
+    const bh = d(null,{marginBottom:'12px',marginTop:'18px'});
+    const title = d(null,{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'});
+    title.appendChild(d(null,{fontFamily:'system-ui,sans-serif',fontWeight:800,fontSize:'12px',letterSpacing:'2px',textTransform:'uppercase',color:block.color},block.title));
+    const line = d(null,{flex:'1',height:'1px',background:'#e5e5e5'});
+    title.appendChild(line);
+    bh.appendChild(title);
+    bh.appendChild(d(null,{fontFamily:'system-ui,sans-serif',fontSize:'11px',color:'#999'},block.duration));
+    wrap.appendChild(bh);
+
+    // Exercises
+    block.exercises.forEach(ex => {
+      const row = d('step-row',{borderLeftColor:block.color});
+      row.appendChild(d('step-icon',null,ex.icon));
+      const info = d(null,null);
+      info.appendChild(d('step-name',null,ex.name));
+      info.appendChild(d('step-desc',null,ex.desc));
+      row.appendChild(info);
+      const meta = d(null,{textAlign:'right',minWidth:'65px'});
+      if(ex.sets) meta.appendChild(d('step-dur',{color:block.color,display:'block'},ex.sets));
+      meta.appendChild(d('step-dur',{color:block.color,display:'block'},ex.reps));
+      row.appendChild(meta);
+      wrap.appendChild(row);
+    });
+  });
+
   return wrap;
 }
 
