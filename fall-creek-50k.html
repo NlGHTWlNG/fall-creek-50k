@@ -136,76 +136,64 @@ const phases = [
   {
     id: 1,
     name: "Phase 1: Return to Running",
-    weeks: "Weeks 1–5",
-    dates: "June 29 – August 2",
+    weeks: "Weeks 1–4",
+    dates: "June 29 – July 26",
     subtitle: "Build the habit. Protect the body.",
     color: "#4a7c59",
     accent: "#d4edda",
     goals: [
       "Reintroduce running safely — zero injury is the only metric that matters",
-      "Build to 13 miles/week by week 4, pull back in week 5",
-      "Establish the run/CrossFit schedule rhythm",
-      "Begin whole foods vegan nutrition transition",
+      "Build to 15 miles/week by week 3, pull back in week 4",
+      "Establish the 4-run/week schedule rhythm",
+      "Begin whole foods vegan nutrition and sleep routine",
     ],
     weeklySchedule: [
       {
-        week: "Week 1", label: "June 29 – July 5", total: "7 miles",
+        week: "Week 1", label: "June 29 – July 5", total: "10 miles",
         days: [
           { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Wed", activity: "Easy Run + CrossFit", miles: 2, notes: "Early AM. Run/walk OK. CrossFit 4:30pm." },
           { day: "Thu", activity: "Easy Run", miles: 2, notes: "Early AM. Conversational pace only." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 3, notes: "Easy effort. Hike every hill." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest or gentle walk." },
+          { day: "Sat", activity: "Short Run", miles: 4, notes: "Easy effort. Road or trail." },
+          { day: "Sun", activity: "Recovery Run", miles: 2, notes: "Very easy. Walk breaks fine." },
         ]
       },
       {
-        week: "Week 2", label: "July 6 – July 12", total: "9 miles",
+        week: "Week 2", label: "July 6 – July 12", total: "12 miles",
         days: [
           { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Easy Run + CrossFit", miles: 2.5, notes: "Early AM. Heart rate stays conversational. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Easy Run", miles: 2.5, notes: "Early AM. Same easy effort." },
-          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 4, notes: "Easy pace. No pressure on time." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+          { day: "Wed", activity: "Easy Run + CrossFit", miles: 2.5, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 2.5, notes: "Early AM." },
+          { day: "Fri", activity: "Rest", miles: null, notes: "Out of town. No CrossFit." },
+          { day: "Sat", activity: "Short Run", miles: 5, notes: "Easy effort. No pressure on time." },
+          { day: "Sun", activity: "Recovery Run", miles: 2, notes: "Very easy." },
         ]
       },
       {
-        week: "Week 3", label: "July 13 – July 19", total: "11 miles",
+        week: "Week 3", label: "July 13 – July 19", total: "15 miles",
         days: [
-          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Mon", activity: "Optional Easy Run", miles: 2, notes: "Out of town. No CrossFit. Optional 2-mile easy run to keep legs moving." },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Wed", activity: "Easy Run + CrossFit", miles: 3, notes: "Early AM. CrossFit 4:30pm." },
           { day: "Thu", activity: "Easy Run", miles: 3, notes: "Early AM." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 5, notes: "First run over an hour. Hike climbs. Bring water." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+          { day: "Sat", activity: "Trail Run", miles: 6, notes: "First trail run. Hike every hill. Bring water." },
+          { day: "Sun", activity: "Recovery Run", miles: 3, notes: "Easy. Let legs loosen up." },
         ]
       },
       {
-        week: "Week 4", label: "July 20 – July 26", total: "13 miles",
+        week: "Week 4", label: "July 20 – July 26", total: "11 miles (recovery)",
         days: [
           { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Easy Run + CrossFit", miles: 3.5, notes: "Early AM. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Easy Run", miles: 3.5, notes: "Early AM." },
-          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 6, notes: "First proper long run. Bring nutrition. Practice hiking the hills." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
-        ]
-      },
-      {
-        week: "Week 5", label: "July 27 – Aug 2", total: "8 miles (recovery)",
-        days: [
-          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Easy Run + CrossFit", miles: 2, notes: "Early AM. Keep it very easy. CrossFit 4:30pm." },
+          { day: "Wed", activity: "Easy Run + CrossFit", miles: 2, notes: "Early AM. Very easy. CrossFit 4:30pm." },
           { day: "Thu", activity: "Easy Run", miles: 2, notes: "Early AM. Short and easy." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 4, notes: "Recovery long run. No pressure. Just move." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+          { day: "Sat", activity: "Short Run", miles: 5, notes: "Recovery week. No pressure." },
+          { day: "Sun", activity: "Recovery Run", miles: 2, notes: "Easy. Body is adapting." },
         ]
       },
     ],
@@ -214,234 +202,257 @@ const phases = [
     nutrition: [
       { title: "Transition to whole foods vegan", detail: "Eliminate processed foods, animal products, refined sugar. Focus on whole grains, legumes, vegetables, fruit, nuts, seeds." },
       { title: "Start at 2,000–2,100 cal — not 1,700", detail: "1,700 calories is below your BMR of ~1,870. That is a starvation-level deficit for an active athlete. Start at 2,000–2,100 and let your body adjust. You will still lose weight." },
-      { title: "Protein (130–145g/day)", detail: "Protein is your biggest challenge on whole foods vegan. Hit it every meal. Sources: tempeh (31g/cup), lentils (18g/cup), tofu (20g/cup), edamame (17g/cup), black beans (15g/cup), hemp seeds (10g/3tbsp), pea protein powder if needed." },
-      { title: "Carbs (230–260g/day)", detail: "Carbs are your primary fuel for CrossFit and running. Do not cut them. Prioritize: oats, sweet potato, brown rice, quinoa, fruit, legumes." },
-      { title: "Fat (55–65g/day)", detail: "Keep fat moderate — not low. Healthy fats support hormone function and joint health. Sources: avocado, almond butter, walnuts, olive oil, chia seeds." },
-      { title: "Long run days — eat more (2,300–2,400 cal)", detail: "On Saturday trail runs, bump to 2,300–2,400 calories. Do NOT restrict on these days. Under-fueling long runs increases injury risk and slows adaptation." },
-      { title: "Hydration baseline", detail: "Minimum 80–100oz water daily. Add electrolytes (sodium, potassium) on run and CrossFit days." },
-      { title: "Weight target", detail: "Expect 0.5–1 lb/week loss at this calorie level. Goal: reach 170–172 by end of Phase 1. Slow and steady — you are also building fitness simultaneously." },
+      { title: "Protein (130–145g/day)", detail: "Hit protein every meal. Sources: tempeh (31g/cup), lentils (18g/cup), tofu (20g/cup), edamame (17g/cup), black beans (15g/cup), hemp seeds (10g/3tbsp), Naked Pea protein powder." },
+      { title: "Carbs (230–260g/day)", detail: "Carbs are your primary fuel. Do not cut them. Oats, sweet potato, brown rice, quinoa, fruit, legumes." },
+      { title: "Fat (55–65g/day)", detail: "Keep fat moderate. Avocado, almond butter, walnuts, olive oil, chia seeds." },
+      { title: "Long run days — eat more (2,300–2,400 cal)", detail: "On Saturday trail runs, bump calories. Do NOT restrict on these days." },
+      { title: "Weight target", detail: "Expect 0.5–1 lb/week loss. Goal: reach 170–172 by end of Phase 1." },
     ],
     keyNotes: "Your tendons and ligaments take 2–3x longer to adapt than your cardiovascular system. Your CrossFit fitness will make you feel capable of doing more than your connective tissue can handle. Resist that urge. Every run in this phase should feel almost embarrassingly easy.",
   },
   {
     id: 2,
     name: "Phase 2: Building the Engine",
-    weeks: "Weeks 6–11",
-    dates: "Aug 3 – Sept 13",
+    weeks: "Weeks 5–12",
+    dates: "July 27 – Sept 20",
     subtitle: "Stack the miles. Find your trail legs.",
     color: "#2c5f8a",
     accent: "#d0e8f5",
     goals: [
-      "Build to 25–28 miles/week by end of phase",
-      "Introduce Wednesday medium-long run",
-      "Begin practicing race nutrition on long runs",
+      "Build to 30 miles/week by Week 11",
+      "Saturday/Sunday flipped from Week 7 — Sunday is now long run day (soccer coaching)",
+      "Begin practicing race nutrition on long runs over 90 minutes",
       "Reach 167–169 lbs",
     ],
     weeklySchedule: [
       {
-        week: "Week 6", label: "Aug 3 – Aug 9", total: "17 miles",
+        week: "Week 5", label: "July 27 – Aug 2", total: "18 miles",
         days: [
           { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Medium Run + CrossFit", miles: 6, notes: "Early AM. Comfortable effort. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM. Easy recovery pace." },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 4, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 3, notes: "Early AM." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 7, notes: "Trail. Easy effort. Hike climbs." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Rest or short walk." },
+          { day: "Sat", activity: "Trail Run", miles: 8, notes: "Last Saturday long run before soccer starts. Make it count." },
+          { day: "Sun", activity: "Recovery Run", miles: 3, notes: "Easy." },
         ]
       },
       {
-        week: "Week 7", label: "Aug 10 – Aug 16", total: "19 miles",
+        week: "Week 6", label: "Aug 3 – Aug 9", total: "22 miles",
         days: [
           { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Medium Run + CrossFit", miles: 7, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 5, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 3, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Short Run", miles: 4, notes: "Soccer coaching starts. Short run only." },
+          { day: "Sun", activity: "Long Run", miles: 10, notes: "LONG RUN MOVES TO SUNDAY from this week onward. Trail preferred." },
+        ]
+      },
+      {
+        week: "Week 7", label: "Aug 10 – Aug 16", total: "18 miles (recovery)",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 4, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 3, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Short Run", miles: 3, notes: "Soccer coaching. Easy short run." },
+          { day: "Sun", activity: "Long Run", miles: 8, notes: "Recovery week long run. Easy pace." },
+        ]
+      },
+      {
+        week: "Week 8", label: "Aug 17 – Aug 23", total: "25 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 5, notes: "Early AM. CrossFit 4:30pm." },
           { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 8, notes: "First run over 90 min. Start fueling at 45-min mark." },
-          { day: "Sun", activity: "Rest or Easy", miles: null, notes: "Optional 2–3 mile walk/jog. Full rest if needed." },
+          { day: "Sat", activity: "Short Run", miles: 4, notes: "Soccer coaching." },
+          { day: "Sun", activity: "Long Run", miles: 12, notes: "First run over 2 hours. Start fueling at 45-min mark." },
         ]
       },
       {
-        week: "Week 8", label: "Aug 17 – Aug 23", total: "16 miles (recovery)",
+        week: "Week 9", label: "Aug 24 – Aug 30", total: "28 miles",
         days: [
           { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Medium Run + CrossFit", miles: 6, notes: "Early AM. Pull back effort. CrossFit 4:30pm." },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 6, notes: "Early AM. CrossFit 4:30pm." },
           { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 6, notes: "Recovery long run. Easy pace, enjoy it." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+          { day: "Sat", activity: "Short Run", miles: 4, notes: "Soccer coaching." },
+          { day: "Sun", activity: "Long Run", miles: 14, notes: "Biggest run so far. Carry 1.5L water. Practice nutrition every 45 min." },
         ]
       },
       {
-        week: "Week 9", label: "Aug 24 – Aug 30", total: "23 miles",
+        week: "Week 10", label: "Aug 31 – Sept 6", total: "21 miles (recovery)",
         days: [
           { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Medium Run + CrossFit", miles: 8, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 5, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 3, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Short Run", miles: 3, notes: "Soccer coaching. Easy." },
+          { day: "Sun", activity: "Long Run", miles: 10, notes: "Recovery week. Relaxed pace. Body is consolidating gains." },
+        ]
+      },
+      {
+        week: "Week 11", label: "Sept 7 – Sept 13", total: "30 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 6, notes: "Early AM. CrossFit 4:30pm." },
           { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 11, notes: "3+ hours on feet. Practice nutrition every 45 min. Hike climbs freely." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+          { day: "Sat", activity: "Short Run", miles: 5, notes: "Soccer coaching." },
+          { day: "Sun", activity: "Long Run", miles: 15, notes: "Phase 2 peak long run. Seek out elevation. Full nutrition practice." },
         ]
       },
       {
-        week: "Week 10", label: "Aug 31 – Sept 6", total: "26 miles",
+        week: "Week 12", label: "Sept 14 – Sept 20", total: "21 miles (recovery)",
         days: [
           { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Medium Run + CrossFit", miles: 9, notes: "Early AM. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM." },
-          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 13, notes: "Biggest run so far. Seek out elevation. Carry 1.5L water." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
-        ]
-      },
-      {
-        week: "Week 11", label: "Sept 7 – Sept 13", total: "16 miles (recovery)",
-        days: [
-          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Medium Run + CrossFit", miles: 6, notes: "Early AM. Easy effort. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Easy Run", miles: 3, notes: "Early AM. Short and easy." },
-          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 7, notes: "Recovery week long run. Relaxed pace." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest. Body is consolidating gains." },
+          { day: "Wed", activity: "Easy Run", miles: 5, notes: "Early AM. No CrossFit — Toronto. Run the city." },
+          { day: "Thu", activity: "Easy Run", miles: 3, notes: "Early AM. Toronto." },
+          { day: "Fri", activity: "Rest", miles: null, notes: "Out of town. No CrossFit. Rest day." },
+          { day: "Sat", activity: "Short Run", miles: 3, notes: "Soccer coaching." },
+          { day: "Sun", activity: "Long Run", miles: 10, notes: "Recovery week. Toronto Sept 15-18 — run the city, enjoy it, no pressure." },
         ]
       },
     ],
-    cals: { easy: "2,200–2,400", longRun: "2,700–3,000", label: "Cut transitioning to maintenance by Week 11" },
+    cals: { easy: "2,200–2,400", longRun: "2,700–3,000", label: "Cut transitioning to maintenance by Week 12" },
     macros: { protein: "145–160g", carbs: "270–320g", fat: "60–70g" },
     nutrition: [
-      { title: "Easy days: 2,200–2,400 cal", detail: "Modest deficit continues on non-long-run days. Protein: 145–160g. Carbs: 270–320g. Fat: 60–70g. As mileage grows, calorie needs grow with it." },
-      { title: "Long run days: 2,700–3,000 cal", detail: "Saturday runs of 7–13 miles require serious fuel. Increase carbs significantly. Do not restrict. Under-fueling now means poor adaptation and injury risk." },
-      { title: "Pre-run fueling", detail: "Eat a carb-rich meal 90–120 min before long runs. Oatmeal with banana and almond butter is ideal. Never run fasted on long days." },
-      { title: "During-run nutrition practice", detail: "Begin fueling at 45-min mark on runs over 90 minutes. Practice with dates, rice balls, banana pieces, or vegan gels. Target 150–200 calories/hour." },
-      { title: "Recovery nutrition window", detail: "Within 30 min of finishing long runs: 20–30g protein + carbs. Example: smoothie with pea protein, banana, oat milk, frozen berries." },
-      { title: "Electrolytes on long runs", detail: "Carry sodium (300–500mg/hour in summer heat) on runs over 2 hours. Medjool dates + a pinch of salt work well. Sweat rate is high in August/September in Tennessee." },
-      { title: "Weight target", detail: "Goal: reach 167–169 lbs by end of Phase 2. Progress should be steady but not aggressive. If weight stalls, do not cut calories further — reassess food quality first." },
+      { title: "Easy days: 2,200–2,400 cal", detail: "Modest deficit continues. Protein: 145–160g. Carbs: 270–320g. Fat: 60–70g. Calories grow as mileage grows." },
+      { title: "Long run days: 2,700–3,000 cal", detail: "Sunday long runs require serious fuel. Increase carbs significantly. Do not restrict." },
+      { title: "Pre-run fueling", detail: "Saturday — small snack only (banana or dates). Sunday long runs — banana or dates 30 min before, full oatmeal as recovery meal after." },
+      { title: "During-run nutrition", detail: "Begin fueling at 45-min mark on runs over 90 minutes. Dates, rice balls, banana, or vegan gels. Target 150–200 cal/hour." },
+      { title: "Recovery window", detail: "Within 30 min of finishing long runs: 20–30g protein + carbs. Oatmeal with Naked Pea protein is your recovery meal." },
+      { title: "Friday dinner matters", detail: "Friday night is your most important meal of the week from Week 8 onward. Top off glycogen for Sunday's long run." },
+      { title: "Weight target", detail: "Goal: reach 167–169 lbs by end of Phase 2." },
     ],
-    keyNotes: "The Wednesday medium-long run after CrossFit Tuesday is intentionally hard — this tired-legs training mimics the fatigue you will feel in the back half of the 50K. The Saturday trail run is your most important workout every week. Treat it as sacred.",
+    keyNotes: "The long run moves to Sunday from Week 6 onward due to soccer coaching commitments. Saturday becomes your short recovery run. Sunday is sacred — protect it. Toronto Week 12 is a recovery week by design — run the city and enjoy it.",
   },
   {
     id: 3,
     name: "Phase 3: Peak Training",
-    weeks: "Weeks 12–18",
-    dates: "Sept 14 – Nov 1",
+    weeks: "Weeks 13–19",
+    dates: "Sept 21 – Nov 8",
     subtitle: "The hard work. Where the race is won.",
     color: "#7a3b1e",
     accent: "#f5e6d0",
     goals: [
-      "Peak at 30–35 miles/week",
-      "Complete 2 runs of 18–22 miles",
-      "Simulate race conditions on Week 15 long run",
+      "Peak at 50 miles/week for 2 weeks (Weeks 18 and 19)",
+      "Complete race simulation on Week 16 in Boston",
       "Reach and maintain 163–165 lbs",
+      "Dial in race nutrition, gear, and drop bag",
     ],
     weeklySchedule: [
       {
-        week: "Week 12", label: "Sept 14 – Sept 20", total: "20 miles",
-        days: [
-          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm — scale if legs are tired from transition" },
-          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Medium Run + CrossFit", miles: 7, notes: "Early AM. Transition week — controlled effort. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM. Easy recovery pace." },
-          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 9, notes: "First peak phase run. Seek out climbs. Practice race nutrition. Bring layers." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
-        ]
-      },
-      {
-        week: "Week 13", label: "Sept 21 – Sept 27", total: "28 miles",
+        week: "Week 13", label: "Sept 21 – Sept 27", total: "33 miles",
         days: [
           { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Medium Run + CrossFit", miles: 9, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 7, notes: "Early AM. CrossFit 4:30pm." },
           { day: "Thu", activity: "Easy Run", miles: 5, notes: "Early AM." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 14, notes: "Building toward peak. Full nutrition protocol. Hike every climb." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+          { day: "Sat", activity: "Short Run", miles: 5, notes: "Soccer coaching." },
+          { day: "Sun", activity: "Long Run", miles: 16, notes: "First peak phase long run. Seek out climbs. Full nutrition protocol." },
         ]
       },
       {
-        week: "Week 14", label: "Sept 28 – Oct 4", total: "22 miles (recovery)",
+        week: "Week 14", label: "Sept 28 – Oct 4", total: "37 miles",
         days: [
           { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Medium Run + CrossFit", miles: 8, notes: "Early AM. Easier effort this week. CrossFit 4:30pm." },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 8, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 5, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Sat", activity: "Short Run", miles: 6, notes: "Soccer coaching." },
+          { day: "Sun", activity: "Long Run", miles: 18, notes: "Building toward peak. Full nutrition protocol. Hike every climb." },
+        ]
+      },
+      {
+        week: "Week 15", label: "Oct 5 – Oct 11", total: "26 miles (recovery)",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 6, notes: "Early AM. Recovery week — pull back effort. CrossFit 4:30pm." },
           { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 10, notes: "Recovery long run. Easy pace. Enjoy it. Body is absorbing the build." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+          { day: "Sat", activity: "Short Run", miles: 4, notes: "Soccer coaching. Easy." },
+          { day: "Sun", activity: "Long Run", miles: 12, notes: "Recovery long run. Relaxed pace. Body is absorbing the build." },
         ]
       },
       {
-        week: "Week 15", label: "Oct 5 – Oct 11", total: "33 miles",
+        week: "Week 16", label: "Oct 12 – Oct 18", total: "41 miles",
         days: [
           { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Medium Run + CrossFit", miles: 10, notes: "Early AM. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Easy Run", miles: 5, notes: "Early AM." },
-          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm. Rest well tonight." },
-          { day: "Sat", activity: "RACE SIMULATION", miles: 20, notes: "6:30am start. Full gear. Full nutrition. Cold layers. This is your dress rehearsal for Fall Creek." },
-          { day: "Sun", activity: "Recovery Run", miles: 3, notes: "Very easy shakeout. Back-to-back fatigue training." },
+          { day: "Wed", activity: "Easy Run", miles: 9, notes: "Early AM. No CrossFit — Boston. Run the city." },
+          { day: "Thu", activity: "Easy Run", miles: 6, notes: "Early AM. Boston." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm. Boston Oct 14-17. Rest well tonight." },
+          { day: "Sat", activity: "Short Run — Boston", miles: 6, notes: "Easy run in Boston. Charles River path recommended." },
+          { day: "Sun", activity: "RACE SIMULATION — Boston", miles: 20, notes: "6:30am start. Full gear. Full nutrition. Cold layers. Charles River or Boston trails. This is your dress rehearsal." },
         ]
       },
       {
-        week: "Week 16", label: "Oct 12 – Oct 18", total: "31 miles",
-        days: [
-          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm — scale intensity after big weekend" },
-          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Medium Run + CrossFit", miles: 10, notes: "Early AM. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Easy Run", miles: 5, notes: "Early AM." },
-          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 18, notes: "Second peak long run. Seek elevation. Full race nutrition practice." },
-          { day: "Sun", activity: "Recovery Run", miles: 3, notes: "Very easy. Back-to-back fatigue training." },
-        ]
-      },
-      {
-        week: "Week 17", label: "Oct 19 – Oct 25", total: "22 miles (recovery)",
+        week: "Week 17", label: "Oct 19 – Oct 25", total: "39 miles",
         days: [
           { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Medium Run + CrossFit", miles: 7, notes: "Early AM. Recovery week — pull back effort. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM. Short and easy." },
-          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 11, notes: "Recovery long run. Relaxed pace. Body is absorbing peak training." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+          { day: "Wed", activity: "Long Run", miles: 13, notes: "Early AM. Big run before vacation departure. Get this done." },
+          { day: "Thu", activity: "Easy Run — Chicago", miles: 8, notes: "Vacation run. Easy effort. Explore the city." },
+          { day: "Fri", activity: "Easy Run — Chicago", miles: 8, notes: "Vacation run. Easy effort." },
+          { day: "Sat", activity: "Long Run — Chicago", miles: 10, notes: "Longest vacation run. Lakefront trail recommended." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Rest. Travel if needed." },
         ]
       },
       {
-        week: "Week 18", label: "Oct 26 – Nov 1", total: "29 miles",
+        week: "Week 18", label: "Oct 26 – Nov 1", total: "50 miles",
         days: [
           { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Medium Run + CrossFit", miles: 9, notes: "Early AM. Final peak week — good effort. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Easy Run", miles: 5, notes: "Early AM." },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 11, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 7, notes: "Early AM." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 15, notes: "Final long run before taper. This is the last hard effort. Run it well." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest. Taper begins tomorrow." },
+          { day: "Sat", activity: "Short Run", miles: 7, notes: "Soccer coaching. Keep it easy — big run tomorrow." },
+          { day: "Sun", activity: "Long Run", miles: 25, notes: "PEAK WEEK 1. Your biggest training run. Full race simulation. 6:30am start. Full gear. Full nutrition." },
+        ]
+      },
+      {
+        week: "Week 19", label: "Nov 2 – Nov 8", total: "37 miles",
+        days: [
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Medium Run + CrossFit", miles: 11, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 8, notes: "Early AM." },
+          { day: "Fri", activity: "Long Run", miles: 12, notes: "Early AM. Run before leaving with kids. Get this done first thing." },
+          { day: "Sat", activity: "Rest — out of town", miles: null, notes: "Out of town with kids. Full rest." },
+          { day: "Sun", activity: "Easy Run", miles: 6, notes: "Return run. Easy shakeout to close the week." },
         ]
       },
     ],
     cals: { easy: "3,000–3,200", longRun: "3,500–3,800", label: "Maintenance — performance fueling takes over" },
     macros: { protein: "155–170g", carbs: "370–420g", fat: "75–90g" },
     nutrition: [
-      { title: "Easy days: 3,000–3,200 cal", detail: "You are now in maintenance — no more deficit. Protein: 155–170g. Carbs: 370–420g. Fat: 75–90g. Your body needs fuel to handle 30–35 miles/week plus CrossFit." },
-      { title: "Long run days (14–20+ miles): 3,500–3,800 cal", detail: "Peak long run days require aggressive fueling. Load carbs the night before. Fuel during the run every 30–45 min. Recover with protein and carbs within 30 min of finishing." },
-      { title: "Race nutrition dialed in", detail: "By week 13, you should have a practiced nutrition plan for every 45 minutes of running. Know exactly what you are eating and carrying at Fall Creek." },
-      { title: "Drop bag planning", detail: "Fall Creek aid stations — build your drop bag now. Vegan-specific items: rice balls with soy sauce, boiled potatoes with salt, dates, almond butter packets, vegan gels, backup dry clothes." },
-      { title: "Carb loading practice", detail: "Practice carb loading the Friday before your 20-mile run in Week 15. High-carb vegan meals: pasta with marinara, rice with roasted vegetables, sweet potatoes." },
-      { title: "Weight target", detail: "You should reach 163–165 lbs around week 13. After that, stop trying to lose weight. Fueling for performance is the only priority now." },
-      { title: "Cold weather hydration", detail: "You will feel less thirsty in cold weather but still lose fluids. Force fluids even when you do not want them. Practice drinking cold in cool morning conditions." },
+      { title: "Easy days: 3,000–3,200 cal", detail: "You are now in maintenance — no more deficit. Protein: 155–170g. Carbs: 370–420g. Fat: 75–90g." },
+      { title: "Long run days (16–25 miles): 3,500–3,800 cal", detail: "Peak long run days require aggressive fueling. Load carbs Friday night. Fuel every 30–45 min during the run. Recover within 30 min of finishing." },
+      { title: "Race nutrition locked in", detail: "By Week 13 you should have a practiced plan for every 45 minutes of running. Know exactly what you are carrying at Fall Creek." },
+      { title: "Drop bag planning", detail: "Build your drop bag now. Vegan items: rice balls with soy sauce, boiled potatoes with salt, dates, almond butter packets, vegan gels, backup dry clothes." },
+      { title: "Carb loading practice", detail: "Practice carb loading the Friday before your Week 16 and Week 18 long runs. Pasta with marinara, rice with roasted vegetables, sweet potatoes." },
+      { title: "Weight target", detail: "Reach 163–165 lbs around Week 13. After that stop trying to lose weight. Fueling for performance is the only priority." },
+      { title: "Cold weather hydration", detail: "You will feel less thirsty in cold weather but still lose fluids. Force fluids. Practice drinking cold in cool morning conditions." },
     ],
-    keyNotes: "Week 15 is your most important training week. The 20-mile trail run should mimic race day exactly: 6:30am start, full gear, full nutrition plan, cold morning layers. Week 18 is your final long run before the taper — run it well and then trust what you have built.",
+    keyNotes: "Week 16 race simulation in Boston is your most important training run until Week 18. Week 18 Sunday 25-miler is the peak of the entire training plan. Week 19 is modified around the trip — Friday long run before departure is non-negotiable. Do not skip it.",
   },
   {
     id: 4,
     name: "Phase 4: Taper",
-    weeks: "Weeks 19–21",
-    dates: "Nov 2 – Nov 21",
+    weeks: "Weeks 20–21",
+    dates: "Nov 9 – Nov 21",
     subtitle: "Trust the work. Arrive fresh.",
     color: "#5a4a8a",
     accent: "#e8e0f5",
@@ -453,33 +464,21 @@ const phases = [
     ],
     weeklySchedule: [
       {
-        week: "Week 19", label: "Nov 2 – Nov 8", total: "18 miles",
+        week: "Week 20", label: "Nov 9 – Nov 15", total: "28 miles",
         days: [
           { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm — maintain frequency, reduce intensity" },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Easy Run + CrossFit", miles: 6, notes: "Early AM. Taper begins — easier effort, same schedule. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Easy Run", miles: 4, notes: "Early AM. Relaxed pace." },
-          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Trail Run", miles: 8, notes: "First taper long run. Easy effort. You will feel restless. That is correct." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
-        ]
-      },
-      {
-        week: "Week 20", label: "Nov 9 – Nov 15", total: "10 miles",
-        days: [
-          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm — light effort" },
-          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm — light effort" },
-          { day: "Wed", activity: "Easy Run + CrossFit", miles: 4, notes: "Early AM. Very easy. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Easy Run", miles: 2, notes: "Early AM. Short shakeout." },
-          { day: "Fri", activity: "CrossFit or Rest", miles: null, notes: "Light CrossFit or full rest. Listen to your body." },
-          { day: "Sat", activity: "Trail Run", miles: 4, notes: "Short easy trail run. Legs should be feeling springy and fresh." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest." },
+          { day: "Wed", activity: "Easy Run + CrossFit", miles: 7, notes: "Early AM. Taper begins — easier effort. CrossFit 4:30pm." },
+          { day: "Thu", activity: "Easy Run", miles: 5, notes: "Early AM." },
+          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm. Out of town Nov 13-15 — easy runs wherever you are." },
+          { day: "Sat", activity: "Short Run", miles: 4, notes: "Easy. Soccer coaching or wherever you are." },
+          { day: "Sun", activity: "Long Run", miles: 12, notes: "Last meaningful long run. 8 days before race. Easy controlled effort." },
         ]
       },
       {
         week: "Week 21 — RACE WEEK", label: "Nov 16 – Nov 21", total: "3 miles + RACE",
         days: [
-          { day: "Mon", activity: "CrossFit (light)", miles: null, notes: "Very light effort only. No heroics." },
+          { day: "Mon", activity: "CrossFit (light)", miles: null, notes: "Very light effort only." },
           { day: "Tue", activity: "CrossFit (light)", miles: null, notes: "Last CrossFit before race. Light." },
           { day: "Wed", activity: "Easy Run", miles: 3, notes: "Early AM. 3 easy miles to stay loose. Nothing more." },
           { day: "Thu", activity: "Rest", miles: null, notes: "Full rest. Pack your drop bag today." },
@@ -492,16 +491,17 @@ const phases = [
     cals: { easy: "2,700–3,000", longRun: "3,200–3,500 (race week)", label: "Maintenance + glycogen loading into race" },
     macros: { protein: "155–165g", carbs: "320–380g", fat: "70–80g" },
     nutrition: [
-      { title: "Taper weeks: 2,700–3,000 cal", detail: "Volume drops but do not slash calories. Keep protein at 155–165g to maintain muscle. Keep carbs at 320–380g — your body is storing glycogen. Fat: 70–80g. Per Jason Koop, the ultra taper should not look dramatically different from a normal deload week." },
-      { title: "Race week (Wk 21): 3,200–3,500 cal", detail: "Carb load Wednesday through Friday. Increase carbs to 450–500g/day. Reduce fat slightly. Keep protein stable. Do not eat anything new or unusual." },
+      { title: "Taper weeks: 2,700–3,000 cal", detail: "Volume drops but do not slash calories. Keep protein at 155–165g. Keep carbs high — your body is storing glycogen. Per Jason Koop, the ultra taper should not look dramatically different from a normal deload week." },
+      { title: "Race week (Wk 21): 3,200–3,500 cal", detail: "Carb load Wednesday through Friday. Increase carbs to 450–500g/day. Do not eat anything new or unusual." },
       { title: "Race week carb loading meals", detail: "Wednesday–Friday: rice with roasted vegetables, pasta with marinara, oatmeal with banana and maple syrup, sweet potatoes. Avoid high-fiber raw vegetables the day before." },
-      { title: "Race morning (4:30am): 600–800 cal", detail: "Oatmeal with banana, almond butter, maple syrup. Coffee if that is your routine — do not change it race morning. Eat 2 full hours before start." },
-      { title: "Race day fueling plan", detail: "Fuel every 30–45 min from mile 5 onward. Do not wait until you are hungry — that is too late. Alternate savory and sweet. Target 150–200 cal/hour. Carry backup calories beyond what you think you need." },
-      { title: "Taper madness", detail: "You will feel heavy, sluggish, and undertrained in week 20. This is normal. Your body is storing glycogen and repairing tissue. Do not add miles back in. Research confirms 2 weeks is optimal for a 50K taper." },
+      { title: "Race morning (4:30am): 600–800 cal", detail: "Oatmeal with banana, almond butter, maple syrup. Coffee if that is your routine. Eat 2 full hours before start." },
+      { title: "Race day fueling plan", detail: "Fuel every 30–45 min from mile 5 onward. Do not wait until hungry. Alternate savory and sweet. Target 150–200 cal/hour. Carry backup calories." },
+      { title: "Taper madness", detail: "You will feel heavy and undertrained in Week 20. This is normal. Your body is storing glycogen and repairing tissue. Do not add miles back in. Research confirms 2 weeks is optimal for a 50K taper. [Koop, Training Essentials for Ultrarunning]" },
     ],
-    keyNotes: "The taper is part of your training. A 2-week taper is well-supported by research for a 50K — Jason Koop specifically notes that ultra tapers do not need to be elaborate. Arriving to the start line at 165 lbs, healthy, and rested is the entire goal. Resist every urge to do more.",
+    keyNotes: "The taper is part of your training. A 2-week taper is well-supported by research for a 50K — Jason Koop specifically notes that ultra tapers do not need to be elaborate. [Koop, Training Essentials for Ultrarunning] Arriving to the start line at 165 lbs, healthy, and rested is the entire goal.",
   },
 ];
+
 
 const warmupData = {
   weekday: {
@@ -633,10 +633,10 @@ const warmupData = {
     ],
   },
   phaseNotes: [
-    { phase: "Phase 1 (Weeks 1–5)", note: "Do the full warmup and cooldown every single time, no exceptions. Your body is relearning how to run. These routines are not optional — they are the difference between adapting and getting hurt." },
-    { phase: "Phase 2 (Weeks 6–11)", note: "Add glute activation to your weekday warmup as Wednesday runs get longer. Add foam rolling to your post-long-run cooldown — calves and IT band especially as mileage builds." },
+    { phase: "Phase 1 (Weeks 1–4)", note: "Do the full warmup and cooldown every single time, no exceptions. Your body is relearning how to run. These routines are not optional — they are the difference between adapting and getting hurt." },
+    { phase: "Phase 2 (Weeks 5–12)", note: "Add glute activation to your weekday warmup as Wednesday runs get longer. Add foam rolling to your post-long-run cooldown — calves and IT band especially as mileage builds." },
     { phase: "Phase 3 (Weeks 12–17)", note: "Peak training means peak recovery importance. Add inchworms to your weekday warmup. Spend 15 full minutes on the post-long-run routine. Your ability to recover between weeks determines your race fitness." },
-    { phase: "Phase 4 (Taper)", note: "Maintain full routines through the taper. Race morning: full pre-long-run warmup starting at 6:00am. Race finish: walk 10 minutes, then do the full post-run cooldown before sitting down for good." },
+    { phase: "Phase 4 (Weeks 20–21)", note: "Maintain full routines through the taper. Race morning: full pre-long-run warmup starting at 6:00am. Race finish: walk 10 minutes, then do the full post-run cooldown before sitting down for good." },
   ],
   cooldownWeekday: {
     title: "Post Easy Run Cooldown",
@@ -673,7 +673,7 @@ const warmupData = {
 
 const calisthenicsData = [
   {
-    phase: "Phase 1 (Weeks 1–5)",
+    phase: "Phase 1 (Weeks 1–4)",
     note: "Learn the movements and build the habit. Same routine every day. On days when CrossFit left you beat up, skip Block 2 and just do Blocks 1 and 3.",
     blocks: [
       {
@@ -709,7 +709,7 @@ const calisthenicsData = [
     ]
   },
   {
-    phase: "Phase 2 (Weeks 6–11)",
+    phase: "Phase 2 (Weeks 5–12)",
     note: "Progress the movements as your body adapts. Add 5 push-up reps per set. Upgrade glute bridges to single-leg version. Everything else stays the same.",
     blocks: [
       {
@@ -745,7 +745,7 @@ const calisthenicsData = [
     ]
   },
   {
-    phase: "Phase 3 (Weeks 12–18)",
+    phase: "Phase 3 (Weeks 13–19)",
     note: "Peak training phase — these routines protect you from breaking down. The side plank addition directly addresses IT band health. Do not skip Block 1 on any day.",
     blocks: [
       {
@@ -782,7 +782,7 @@ const calisthenicsData = [
     ]
   },
   {
-    phase: "Phase 4 — Taper (Weeks 19–21)",
+    phase: "Phase 4 — Taper (Weeks 20–21)",
     note: "Pull back Block 2 to every other day. Blocks 1 and 3 remain daily through race week. Race morning: do Block 1 only as part of your pre-race warmup.",
     blocks: [
       {
