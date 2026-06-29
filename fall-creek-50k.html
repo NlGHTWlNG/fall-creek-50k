@@ -152,47 +152,59 @@
     .race-dot { width: 7px; height: 7px; background: #8a3a3a; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
     .race-txt { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
 
-    /* ── Desktop breakpoint ── */
+    /* ── Desktop ── */
     @media (min-width: 768px) {
-      .header { padding: 56px 40px 40px; }
-      .header h1 { font-size: 36px; }
-      .header-sub { font-size: 15px; }
-      .stat span { font-size: 18px; }
-      .header-stats { gap: 32px; }
-      .phase-btn { font-size: 13px; padding: 14px 20px; }
-      .phase-btn small { font-size: 10px; }
-      .content { padding: 28px 32px 80px; }
-      h2.phase-title { font-size: 26px; }
-      .phase-sub { font-size: 16px; }
-      .goal-txt { font-size: 14px; }
-      .tab-btn { font-size: 13px; padding: 11px 12px; }
-      .week-pill { font-size: 13px; padding: 7px 14px; }
-      .week-title-txt { font-size: 18px; }
-      .week-badge { font-size: 16px; }
-      .day-row { grid-template-columns: 26px 60px 1fr 64px; gap: 16px; padding: 15px 18px; }
-      .day-lbl { font-size: 14px; }
-      .day-act { font-size: 15px; }
+      .header { padding: 56px 5% 40px; }
+      .header-inner { max-width: 100%; }
+      .phase-nav-inner { max-width: 100%; }
+      .header h1 { font-size: 42px; }
+      .header-sub { font-size: 16px; }
+      .stat span { font-size: 20px; }
+      .stat label { font-size: 10px; }
+      .header-stats { gap: 40px; }
+      .phase-btn { font-size: 14px; padding: 16px 28px; }
+      .phase-btn small { font-size: 11px; }
+      .content { padding: 36px 5% 80px; max-width: 100%; }
+      h2.phase-title { font-size: 30px; }
+      .phase-sub { font-size: 17px; }
+      .goal-txt { font-size: 15px; }
+      .goals-box { padding: 20px; }
+      .tab-btn { font-size: 14px; padding: 12px 16px; }
+      .week-pill { font-size: 14px; padding: 8px 16px; }
+      .week-title-txt { font-size: 20px; }
+      .week-badge { font-size: 17px; padding: 6px 16px; }
+      .day-row { grid-template-columns: 28px 70px 1fr 72px; gap: 18px; padding: 16px 20px; }
+      .day-lbl { font-size: 15px; }
+      .day-act { font-size: 16px; }
       .day-notes-txt { font-size: 13px; }
-      .day-mi { font-size: 15px; }
-      .cn-txt { font-size: 14px; }
-      .mi-wk { font-size: 14px; }
-      .mi-total { font-size: 20px; }
-      .dc-lbl { font-size: 10px; }
-      .dc-val { font-size: 11px; padding: 5px 3px; }
-      .bars { height: 100px; }
-      .bar-lbl { font-size: 10px; }
-      .step-name { font-size: 14px; }
-      .step-desc { font-size: 13px; }
-      .step-dur { font-size: 12px; }
-      .nutr-title { font-size: 14px; }
-      .nutr-detail { font-size: 14px; }
-      .race-h2 { font-size: 28px; }
-      .race-txt { font-size: 15px; }
-      .cal-card-val { font-size: 24px; }
-      .macro-val { font-size: 16px; }
-      .routine-title { font-size: 18px; }
-      .routine-sub { font-size: 13px; }
-      .pn-text { font-size: 14px; }
+      .day-mi { font-size: 16px; }
+      .cn-txt { font-size: 15px; }
+      .cn-lbl { font-size: 12px; }
+      .coach-note { padding: 18px 20px; }
+      .mi-wk { font-size: 15px; }
+      .mi-total { font-size: 22px; }
+      .dc-lbl { font-size: 11px; }
+      .dc-val { font-size: 12px; padding: 6px 3px; }
+      .bars { height: 120px; }
+      .bar-lbl { font-size: 11px; }
+      .step-name { font-size: 15px; }
+      .step-desc { font-size: 14px; }
+      .step-dur { font-size: 13px; min-width: 75px; }
+      .nutr-title { font-size: 15px; }
+      .nutr-detail { font-size: 15px; }
+      .race-h2 { font-size: 32px; }
+      .race-txt { font-size: 16px; }
+      .cal-card-val { font-size: 26px; }
+      .macro-val { font-size: 18px; }
+      .routine-title { font-size: 20px; }
+      .routine-sub { font-size: 14px; }
+      .pn-text { font-size: 15px; }
+      .week-count { font-size: 13px; }
+      .eyebrow { font-size: 12px; }
+    }
+    @media (min-width: 1400px) {
+      .header { padding: 60px 8% 48px; }
+      .content { padding: 40px 8% 80px; }
     }
   </style>
 </head>
