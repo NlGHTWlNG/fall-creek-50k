@@ -258,7 +258,7 @@ const phases = [
           { day: "Wed", activity: "Easy Run + CrossFit", miles: 2.5, notes: "Early AM. CrossFit 4:30pm." },
           { day: "Thu", activity: "Easy Run + CrossFit", miles: 2.5, notes: "Early AM run. CrossFit added — gym challenge." },
           { day: "Fri", activity: "Rest", miles: null, notes: "Out of town. No CrossFit." },
-          { day: "Sat", activity: "Trail Run", miles: 5, notes: "Preservation Park — Battlefield Trail. Loop it twice plus out-and-back. Easy effort." },
+          { day: "Sat", activity: "Easy Run — Milford CT", miles: 5, notes: "Out of town. Road run. Zone 2, 130-140 bpm. Explore the area." },
           { day: "Sun", activity: "Recovery Run", miles: 2, notes: "Very easy." },
         ]
       },
@@ -287,16 +287,17 @@ const phases = [
         ]
       },
     ],
-    cals: { easy: "2,000–2,100", longRun: "2,300–2,400", label: "Cut — gradual ramp from starting point" },
-    macros: { protein: "130–145g", carbs: "230–260g", fat: "55–65g" },
+    cals: { easy: "1,900–1,950", longRun: "2,050–2,150", label: "Cut — targeting 0.75 lbs/week loss" },
+    macros: { protein: "130g", carbs: "246g", fat: "49g" },
+    macrosLongRun: { protein: "142g", carbs: "268g", fat: "54g" },
     nutrition: [
       { title: "Transition to whole foods vegan", detail: "Eliminate processed foods, animal products, refined sugar. Focus on whole grains, legumes, vegetables, fruit, nuts, seeds." },
-      { title: "Start at 2,000–2,100 cal — not 1,700", detail: "1,700 calories is below your BMR of ~1,870. That is a starvation-level deficit for an active athlete. Start at 2,000–2,100 and let your body adjust. You will still lose weight." },
+      { title: "Corrected BMR: 1,679 cal (Mifflin-St Jeor)", detail: "Previous BMR estimate of 1,870 was incorrect. Correct figure is 1,679 calories per Mifflin-St Jeor formula, validated as most accurate by American Dietetic Association 2005." },
       { title: "Protein (130–145g/day)", detail: "Hit protein every meal. Sources: tempeh (31g/cup), lentils (18g/cup), tofu (20g/cup), edamame (17g/cup), black beans (15g/cup), hemp seeds (10g/3tbsp), Naked Pea protein powder." },
       { title: "Carbs (230–260g/day)", detail: "Carbs are your primary fuel. Do not cut them. Oats, sweet potato, brown rice, quinoa, fruit, legumes." },
       { title: "Fat (55–65g/day)", detail: "Keep fat moderate. Avocado, almond butter, walnuts, olive oil, chia seeds." },
-      { title: "Long run days — eat more (2,300–2,400 cal)", detail: "On Saturday trail runs, bump calories. Do NOT restrict on these days." },
-      { title: "Weight target", detail: "Expect 0.5–1 lb/week loss. Goal: reach 170–172 by end of Phase 1." },
+      { title: "Long run days: 2,050–2,150 cal", detail: "Higher burn from running requires more fuel. Protein 142g, Carbs 268g, Fat 54g. Do not restrict on long run days." },
+      { title: "Weight target", detail: "Targeting 0.75 lbs/week loss at ~375 cal/day deficit. Goal: reach ~166-168 lbs by end of Phase 1. Track Sunday morning, post-void, fasted." },
     ],
     keyNotes: "Your tendons and ligaments take 2–3x longer to adapt than your cardiovascular system. Your CrossFit fitness will make you feel capable of doing more than your connective tissue can handle. Resist that urge. Every run in this phase should feel almost embarrassingly easy.",
   },
@@ -412,8 +413,9 @@ const phases = [
         ]
       },
     ],
-    cals: { easy: "2,200–2,400", longRun: "2,700–3,000", label: "Cut transitioning to maintenance by Week 12" },
-    macros: { protein: "145–160g", carbs: "270–320g", fat: "60–70g" },
+    cals: { easy: "2,100–2,150", longRun: "2,400–2,600", label: "Cut — same 0.75 lbs/week deficit, more burn" },
+    macros: { protein: "144g", carbs: "271g", fat: "54g" },
+    macrosLongRun: { protein: "169g", carbs: "319g", fat: "64g" },
     nutrition: [
       { title: "Easy days: 2,200–2,400 cal", detail: "Modest deficit continues. Protein: 145–160g. Carbs: 270–320g. Fat: 60–70g. Calories grow as mileage grows." },
       { title: "Long run days: 2,700–3,000 cal", detail: "Sunday long runs require serious fuel. Increase carbs significantly. Do not restrict." },
@@ -525,8 +527,9 @@ const phases = [
         ]
       },
     ],
-    cals: { easy: "3,000–3,200", longRun: "3,500–3,800", label: "Maintenance — performance fueling takes over" },
-    macros: { protein: "155–170g", carbs: "370–420g", fat: "75–90g" },
+    cals: { easy: "TBD — recalculate at Week 13", longRun: "TBD — recalculate at Week 13", label: "Maintenance — targets set when you enter Phase 3" },
+    macros: { protein: "TBD", carbs: "TBD", fat: "TBD" },
+    macrosLongRun: { protein: "TBD", carbs: "TBD", fat: "TBD" },
     nutrition: [
       { title: "Easy days: 3,000–3,200 cal", detail: "You are now in maintenance — no more deficit. Protein: 155–170g. Carbs: 370–420g. Fat: 75–90g." },
       { title: "Long run days (16–25 miles): 3,500–3,800 cal", detail: "Peak long run days require aggressive fueling. Load carbs Friday night. Fuel every 30–45 min during the run. Recover within 30 min of finishing." },
@@ -578,8 +581,9 @@ const phases = [
         ]
       },
     ],
-    cals: { easy: "2,700–3,000", longRun: "3,200–3,500 (race week)", label: "Maintenance + glycogen loading into race" },
-    macros: { protein: "155–165g", carbs: "320–380g", fat: "70–80g" },
+    cals: { easy: "TBD — recalculate at Week 20", longRun: "TBD — recalculate at Week 20", label: "Taper — targets set when you enter Phase 4" },
+    macros: { protein: "TBD", carbs: "TBD", fat: "TBD" },
+    macrosLongRun: { protein: "TBD", carbs: "TBD", fat: "TBD" },
     nutrition: [
       { title: "Taper weeks: 2,700–3,000 cal", detail: "Volume drops but do not slash calories. Keep protein at 155–165g. Keep carbs high — your body is storing glycogen. Per Jason Koop, the ultra taper should not look dramatically different from a normal deload week." },
       { title: "Race week (Wk 21): 3,200–3,500 cal", detail: "Carb load Wednesday through Friday. Increase carbs to 450–500g/day. Do not eat anything new or unusual." },
@@ -1244,17 +1248,31 @@ function renderNutrition(phase, pi) {
   const wrap=d(null,null);
   const cb=d('cal-box',{background:phase.color},d('cal-lbl',null,`Daily Targets — ${phase.cals.label}`));
   const cg=d('cal-grid',null);
-  [['Easy / CrossFit Days',phase.cals.easy],['Long Run Days',phase.cals.longRun]].forEach(([l,v])=>{
-    cg.appendChild(d('cal-card',null,d('cal-card-lbl',null,l),d('cal-card-val',null,v),d('cal-card-unit',null,'calories')));
+  [['Workout Days', phase.cals.easy],['Long Run Days', phase.cals.longRun]].forEach(([lbl,val])=>{
+    cg.appendChild(d('cal-card',null,d('cal-card-lbl',null,lbl),d('cal-card-val',null,val),d('cal-card-unit',null,'calories')));
   });
   cb.appendChild(cg);
-  const md=d('macro-div',null,d('macro-lbl',null,'Macros (Easy Days)'));
+
+  // Workout day macros
+  const md=d('macro-div',null,d('macro-lbl',null,'Macros — Workout Days'));
   const mg=d('macro-grid',null);
   [['Protein',phase.macros.protein],['Carbs',phase.macros.carbs],['Fat',phase.macros.fat]].forEach(([n,v])=>{
     mg.appendChild(d('macro-card',null,d('macro-val',null,v),d('macro-name',null,n)));
   });
   md.appendChild(mg);
   cb.appendChild(md);
+
+  // Long run day macros
+  if(phase.macrosLongRun) {
+    const md2=d('macro-div',null,d('macro-lbl',null,'Macros — Long Run Days'));
+    const mg2=d('macro-grid',null);
+    [['Protein',phase.macrosLongRun.protein],['Carbs',phase.macrosLongRun.carbs],['Fat',phase.macrosLongRun.fat]].forEach(([n,v])=>{
+      mg2.appendChild(d('macro-card',null,d('macro-val',null,v),d('macro-name',null,n)));
+    });
+    md2.appendChild(mg2);
+    cb.appendChild(md2);
+  }
+
   wrap.appendChild(cb);
   phase.nutrition.forEach(n=>{
     wrap.appendChild(d('nutr-card',{borderLeftColor:phase.color},d('nutr-title',null,n.title),d('nutr-detail',null,n.detail)));
