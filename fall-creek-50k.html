@@ -957,8 +957,62 @@ const dayColors = {
 
 
 // ── State ──────────────────────────────────────────────────────────
+// Phase/week auto-detection using explicit Y/M/D construction (avoids Safari string-parsing bugs)
+// Format: [year, monthIndex(0-based), day]
+const phaseWeekDates = [
+  // Phase 1
+  { pi:0, wi:0, start:[2026,5,29], end:[2026,6,5] },
+  { pi:0, wi:1, start:[2026,6,6], end:[2026,6,12] },
+  { pi:0, wi:2, start:[2026,6,13], end:[2026,6,19] },
+  { pi:0, wi:3, start:[2026,6,20], end:[2026,6,26] },
+  // Phase 2
+  { pi:1, wi:0, start:[2026,6,27], end:[2026,7,2] },
+  { pi:1, wi:1, start:[2026,7,3], end:[2026,7,9] },
+  { pi:1, wi:2, start:[2026,7,10], end:[2026,7,16] },
+  { pi:1, wi:3, start:[2026,7,17], end:[2026,7,23] },
+  { pi:1, wi:4, start:[2026,7,24], end:[2026,7,30] },
+  { pi:1, wi:5, start:[2026,7,31], end:[2026,8,6] },
+  { pi:1, wi:6, start:[2026,8,7], end:[2026,8,13] },
+  { pi:1, wi:7, start:[2026,8,14], end:[2026,8,20] },
+  // Phase 3
+  { pi:2, wi:0, start:[2026,8,21], end:[2026,8,27] },
+  { pi:2, wi:1, start:[2026,8,28], end:[2026,9,4] },
+  { pi:2, wi:2, start:[2026,9,5], end:[2026,9,11] },
+  { pi:2, wi:3, start:[2026,9,12], end:[2026,9,18] },
+  { pi:2, wi:4, start:[2026,9,19], end:[2026,9,25] },
+  { pi:2, wi:5, start:[2026,9,26], end:[2026,10,1] },
+  { pi:2, wi:6, start:[2026,10,2], end:[2026,10,8] },
+  // Phase 4
+  { pi:3, wi:0, start:[2026,10,9], end:[2026,10,15] },
+  { pi:3, wi:1, start:[2026,10,16], end:[2026,10,21] },
+];
+
+function detectCurrentPhaseAndWeek() {
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  let result = { pi: 0, wi: 0 };
+  for (let i = 0; i < phaseWeekDates.length; i++) {
+    const e = phaseWeekDates[i];
+    const start = new Date(e.start[0], e.start[1], e.start[2]);
+    const end = new Date(e.end[0], e.end[1], e.end[2], 23, 59, 59);
+    if (today >= start && today <= end) {
+      result = { pi: e.pi, wi: e.wi };
+      break;
+    }
+    if (today > end) {
+      result = { pi: e.pi, wi: e.wi };
+    }
+  }
+  return result;
+}
+
 let S = { pi: 0, tab: 'schedule', wi: 0, checked: {} };
 try { const s = localStorage.getItem('fc50k'); if(s) S.checked = JSON.parse(s); } catch(e) {}
+try {
+  const detected = detectCurrentPhaseAndWeek();
+  S.pi = detected.pi;
+  S.wi = detected.wi;
+} catch(e) {}
 function save() { try { localStorage.setItem('fc50k', JSON.stringify(S.checked)); } catch(e) {} }
 function toggleDay(pi,wi,di) { const k=`p${pi}-w${wi}-d${di}`; S.checked[k]=!S.checked[k]; save(); render(); }
 function done(pi,wi,di) { return !!S.checked[`p${pi}-w${wi}-d${di}`]; }
