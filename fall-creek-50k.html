@@ -436,17 +436,17 @@ const phases = [
     color: "#7a3b1e",
     accent: "#f5e6d0",
     goals: [
-      "Peak at 50 miles/week (Week 18)",
-      "Monday/Wednesday grow to 4/5 miles, Thursday becomes a substantial mid-distance run",
-      "Complete race simulation in Boston (Week 16) and peak long run (Week 18)",
+      "Peak at 45 miles/week (Week 18)",
+      "Sept structure (Wk 13-14): CrossFit Mon/Wed/Fri, run Tue/Wed/Thu, rest Sat, long run Sun",
+      "Oct structure (Wk 15+): CrossFit Tue/Thu, run Mon/Wed, rest Fri, back-to-back long run weekend (Sat hard + Sun easy)",
       "Reach and maintain 163–165 lbs",
     ],
     weeklySchedule: [
       {
         week: "Week 13", label: "Sept 21 – Sept 27", total: "33 miles",
         days: [
-          { day: "Mon", activity: "Easy Run + CrossFit", miles: 4, notes: "Early AM. Mon/Wed mileage increases starting this week. CrossFit 4:30pm." },
-          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm. September structure: CrossFit Mon/Wed/Fri, run Tue/Wed/Thu." },
+          { day: "Tue", activity: "Easy Run", miles: 4, notes: "Early AM." },
           { day: "Wed", activity: "Easy Run + CrossFit", miles: 5, notes: "Early AM. CrossFit 4:30pm." },
           { day: "Thu", activity: "Mid-Distance Run", miles: 8, notes: "Early AM." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
@@ -457,8 +457,8 @@ const phases = [
       {
         week: "Week 14", label: "Sept 28 – Oct 4", total: "37 miles",
         days: [
-          { day: "Mon", activity: "Easy Run + CrossFit", miles: 4, notes: "Early AM. CrossFit 4:30pm." },
-          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Mon", activity: "CrossFit", miles: null, notes: "4:30pm. September structure." },
+          { day: "Tue", activity: "Easy Run", miles: 4, notes: "Early AM." },
           { day: "Wed", activity: "Easy Run + CrossFit", miles: 5, notes: "Early AM. CrossFit 4:30pm." },
           { day: "Thu", activity: "Mid-Distance Run", miles: 10, notes: "Early AM." },
           { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
@@ -469,13 +469,13 @@ const phases = [
       {
         week: "Week 15", label: "Oct 5 – Oct 11", total: "26 miles (recovery)",
         days: [
-          { day: "Mon", activity: "Easy Run + CrossFit", miles: 4, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Mon", activity: "Easy Run", miles: 4, notes: "Early AM. October structure begins: CrossFit Tue/Thu, run Mon/Wed, rest Fri, back-to-back weekend." },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Easy Run + CrossFit", miles: 5, notes: "Early AM. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Mid-Distance Run", miles: 5, notes: "Early AM. Recovery week — pull back effort." },
-          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Rest", miles: null, notes: "Soccer coaching." },
-          { day: "Sun", activity: "Long Run", miles: 12, notes: "Henry Horton State Park. Recovery long run. Relaxed pace." },
+          { day: "Wed", activity: "Easy Run", miles: 6, notes: "Early AM." },
+          { day: "Thu", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Fri", activity: "Rest", miles: null, notes: "Full rest day — protect this before the weekend back-to-back." },
+          { day: "Sat", activity: "Long Run 1 — Harder Effort", miles: 10, notes: "Henry Horton State Park. Recovery week — pull back effort. Early morning before soccer if applicable." },
+          { day: "Sun", activity: "Long Run 2 — Easy Effort", miles: 6, notes: "Henry Horton State Park. Deliberately easy pace — tired legs training. Time on feet, not speed." },
         ]
       },
       {
@@ -493,25 +493,25 @@ const phases = [
       {
         week: "Week 17", label: "Oct 19 – Oct 25", total: "33 miles",
         days: [
-          { day: "Mon", activity: "Easy Run — Chicago", miles: 5, notes: "Early AM before departure or in Chicago." },
-          { day: "Tue", activity: "Easy Run — Chicago", miles: 5, notes: "Chicago Lakefront Trail recommended." },
-          { day: "Wed", activity: "CrossFit", miles: null, notes: "If accessible while traveling, otherwise rest." },
-          { day: "Thu", activity: "Mid-Distance Run — Chicago", miles: 13, notes: "Chicago Lakefront Trail. Biggest run of the vacation week." },
-          { day: "Fri", activity: "CrossFit", miles: null, notes: "If accessible while traveling, otherwise rest." },
-          { day: "Sat", activity: "Long Run — Chicago", miles: 10, notes: "Chicago Lakefront Trail. Final vacation run." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Rest. Travel home if needed." },
+          { day: "Mon", activity: "Easy Run + CrossFit", miles: 5, notes: "Early AM. CrossFit 4:30pm. Home in Nashville." },
+          { day: "Tue", activity: "Easy Run", miles: 5, notes: "Early AM. Home in Nashville." },
+          { day: "Wed", activity: "CrossFit", miles: null, notes: "4:30pm. Home in Nashville." },
+          { day: "Thu", activity: "Long Run — Before Airport", miles: 13, notes: "Early AM, before midday departure to Chicago. Henry Horton or local trail. Get this done first thing." },
+          { day: "Fri", activity: "Rest", miles: null, notes: "Chicago. Travel and settle in." },
+          { day: "Sat", activity: "Easy Run — Chicago", miles: 10, notes: "Chicago Lakefront Trail recommended." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Chicago. Full rest." },
         ]
       },
       {
-        week: "Week 18", label: "Oct 26 – Nov 1", total: "50 miles",
+        week: "Week 18", label: "Oct 26 – Nov 1", total: "45 miles",
         days: [
-          { day: "Mon", activity: "Easy Run + CrossFit", miles: 4, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Mon", activity: "Easy Run", miles: 5, notes: "Early AM. October structure: CrossFit Tue/Thu, run Mon/Wed, rest Fri, back-to-back weekend." },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Easy Run + CrossFit", miles: 5, notes: "Early AM. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Mid-Distance Run", miles: 16, notes: "Early AM. Substantial midweek run — your legs will feel this." },
-          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm. Rest well tonight." },
-          { day: "Sat", activity: "Rest", miles: null, notes: "Soccer coaching, or rest before Sunday's peak effort." },
-          { day: "Sun", activity: "Long Run", miles: 25, notes: "PEAK WEEK. Henry Horton State Park. Your biggest training run. Full race simulation. Full gear. Full nutrition." },
+          { day: "Wed", activity: "Easy Run", miles: 8, notes: "Early AM." },
+          { day: "Thu", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Fri", activity: "Rest", miles: null, notes: "Full rest day. Protect this before the biggest weekend of the entire plan." },
+          { day: "Sat", activity: "PEAK LONG RUN 1 — Harder Effort", miles: 19, notes: "PEAK WEEK. Henry Horton State Park. Your biggest single training run. Full gear. Full nutrition. Early morning." },
+          { day: "Sun", activity: "PEAK LONG RUN 2 — Easy Effort", miles: 13, notes: "Henry Horton State Park. Deliberately easy pace on tired legs — this is the point. Full race simulation feel." },
         ]
       },
       {
@@ -539,7 +539,7 @@ const phases = [
       { title: "Weight target", detail: "Reach 163-165 lbs around Week 13. After that, stop trying to lose weight — fuel for performance only." },
       { title: "Cold weather hydration", detail: "You'll feel less thirsty in cold weather but still lose fluids. Force fluids. Practice drinking cold in cool morning conditions." },
     ],
-    keyNotes: "Monday and Wednesday grow to 4 and 5 miles respectively starting Week 13 — Thursday becomes a genuinely substantial training day, peaking at 16 miles in Week 18. Week 16's race simulation happens in two parts: easy running in Boston, then the 20-mile simulation back home in Nashville on Sunday. Week 17 uses a special Chicago structure (Mon/Tue/Thu/Sat). Week 18 is peak week — 50 miles with a 25-mile Sunday long run. Week 19 is modified around the kids trip with a Friday long run before departure.",
+    keyNotes: "Monday and Wednesday grow to 4 and 5 miles respectively starting Week 13 — Thursday becomes a genuinely substantial training day, peaking at 16 miles in Week 18. Week 16's race simulation happens in two parts: easy running in Boston, then the 20-mile simulation back home in Nashville on Sunday. Week 17 uses a special Chicago structure (Mon/Tue/Thu/Sat). Week 18 is peak week — 45 miles with a back-to-back Saturday/Sunday long run block (19mi + 13mi). Week 19 is modified around the kids trip with a Friday long run before departure.",
   },
   {
     id: 4,
@@ -550,22 +550,22 @@ const phases = [
     color: "#5a4a8a",
     accent: "#e8e0f5",
     goals: [
-      "Taper — reduce volume 30-40% from peak while maintaining running frequency",
+      "Taper — reduce volume from peak while maintaining running frequency",
+      "October structure continues: CrossFit Tue/Thu, run Mon/Wed, rest Fri AND Sun (taper week gets two rest days)",
       "Arrive at the start line healthy, rested, and at 163–165 lbs",
       "Finalize all race logistics, gear, and nutrition",
-      "Mental preparation",
     ],
     weeklySchedule: [
       {
-        week: "Week 20", label: "Nov 9 – Nov 15", total: "32 miles",
+        week: "Week 20", label: "Nov 9 – Nov 15", total: "26 miles",
         days: [
-          { day: "Mon", activity: "Easy Run + CrossFit", miles: 4, notes: "Early AM. Taper begins — easier effort. CrossFit 4:30pm." },
+          { day: "Mon", activity: "Easy Run", miles: 4, notes: "Early AM. Taper begins — easier effort." },
           { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Easy Run + CrossFit", miles: 4, notes: "Early AM. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Mid-Distance Run", miles: 6, notes: "Early AM. Shorter than peak weeks." },
-          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Wed", activity: "Easy Run", miles: 4, notes: "Early AM." },
+          { day: "Thu", activity: "CrossFit", miles: null, notes: "4:30pm" },
+          { day: "Fri", activity: "Rest", miles: null, notes: "Full rest day before Saturday's event." },
           { day: "Sat", activity: "Long Effort — Event", miles: 18, notes: "6x3-mile easy segments, 15 min rest between each hour. Zone 2 pace throughout — treat every segment as genuinely easy. Last long effort before race." },
-          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest. Recover from Saturday's event." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "Full rest. Recover from Saturday's event. Taper week — two rest days is correct here." },
         ]
       },
       {
