@@ -356,12 +356,12 @@ const phases = [
         week: "Week 8", label: "Aug 17 – Aug 23", total: "25 miles",
         days: [
           { day: "Mon", activity: "Easy Run + CrossFit", miles: 3, notes: "Early AM. CrossFit 4:30pm." },
-          { day: "Tue", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Wed", activity: "Easy Run + CrossFit", miles: 3, notes: "Early AM. CrossFit 4:30pm." },
-          { day: "Thu", activity: "Mid-Distance Run", miles: 7, notes: "Early AM." },
-          { day: "Fri", activity: "CrossFit", miles: null, notes: "4:30pm" },
-          { day: "Sat", activity: "Rest", miles: null, notes: "Soccer coaching." },
-          { day: "Sun", activity: "Long Run", miles: 12, notes: "Henry Horton State Park. First run over 2 hours. Start fueling at 45-min mark." },
+          { day: "Tue", activity: "Easy Run + CrossFit", miles: 3, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Wed", activity: "Mid-Distance Run + CrossFit", miles: 7, notes: "Early AM. CrossFit 4:30pm." },
+          { day: "Thu", activity: "CrossFit", miles: null, notes: "7am — early class before travel." },
+          { day: "Fri", activity: "Rest", miles: null, notes: "Traveling — NYC." },
+          { day: "Sat", activity: "Long Run — NYC", miles: 12, notes: "First run over 2 hours. Start fueling at 45-min mark. Explore the city on foot." },
+          { day: "Sun", activity: "Rest", miles: null, notes: "NYC. Full rest." },
         ]
       },
       {
@@ -1006,8 +1006,8 @@ function detectCurrentPhaseAndWeek() {
   return result;
 }
 
-let S = { pi: 0, tab: 'schedule', wi: 0, checked: {} };
-try { const s = localStorage.getItem('fc50k'); if(s) S.checked = JSON.parse(s); } catch(e) {}
+let S = { pi: 0, tab: 'schedule', wi: 0, checked: {"p0-w0-d0": true, "p0-w0-d1": true, "p0-w0-d2": true, "p0-w0-d3": true, "p0-w0-d4": true, "p0-w1-d0": true, "p0-w1-d1": true, "p0-w1-d2": true, "p0-w1-d3": true, "p0-w1-d4": true, "p0-w1-d6": true, "p0-w2-d0": true, "p0-w2-d1": true, "p0-w2-d2": true, "p0-w2-d3": true, "p0-w2-d4": true, "p0-w2-d5": true, "p0-w3-d0": true, "p0-w3-d1": true, "p0-w3-d2": true, "p0-w3-d3": true, "p0-w3-d4": true, "p0-w3-d5": true, "p0-w3-d6": true, "p1-w0-d0": true, "p1-w0-d1": true, "p1-w0-d2": true, "p1-w0-d3": true, "p1-w0-d4": true, "p1-w0-d5": true, "p1-w0-d6": true} };
+try { const s = localStorage.getItem('fc50k'); if(s) { const stored = JSON.parse(s); S.checked = Object.assign({}, S.checked, stored); } } catch(e) {}
 try {
   const detected = detectCurrentPhaseAndWeek();
   S.pi = detected.pi;
