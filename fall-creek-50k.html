@@ -1006,7 +1006,7 @@ function detectCurrentPhaseAndWeek() {
   return result;
 }
 
-let S = { pi: 0, tab: 'schedule', wi: 0, checked: {"p0-w0-d0": true, "p0-w0-d1": true, "p0-w0-d2": true, "p0-w0-d3": true, "p0-w0-d4": true, "p0-w1-d0": true, "p0-w1-d1": true, "p0-w1-d2": true, "p0-w1-d3": true, "p0-w1-d4": true, "p0-w1-d6": true, "p0-w2-d0": true, "p0-w2-d1": true, "p0-w2-d2": true, "p0-w2-d3": true, "p0-w2-d4": true, "p0-w2-d5": true, "p0-w3-d0": true, "p0-w3-d1": true, "p0-w3-d2": true, "p0-w3-d3": true, "p0-w3-d4": true, "p0-w3-d5": true, "p0-w3-d6": true, "p1-w0-d0": true, "p1-w0-d1": true, "p1-w0-d2": true, "p1-w0-d3": true, "p1-w0-d4": true, "p1-w0-d5": true, "p1-w0-d6": true} };
+let S = { pi: 0, tab: 'schedule', wi: 0, checked: {"p0-w0-d0": true, "p0-w0-d1": true, "p0-w0-d2": true, "p0-w0-d3": true, "p0-w0-d4": true, "p0-w1-d0": true, "p0-w1-d1": true, "p0-w1-d2": true, "p0-w1-d3": true, "p0-w1-d4": true, "p0-w1-d6": true, "p0-w2-d0": true, "p0-w2-d1": true, "p0-w2-d2": true, "p0-w2-d3": true, "p0-w2-d4": true, "p0-w2-d5": true, "p0-w3-d0": true, "p0-w3-d1": true, "p0-w3-d2": true, "p0-w3-d3": true, "p0-w3-d4": true, "p0-w3-d5": true, "p0-w3-d6": true, "p1-w0-d0": true, "p1-w0-d1": true, "p1-w0-d2": true, "p1-w0-d3": true, "p1-w0-d4": true, "p1-w0-d5": true, "p1-w0-d6": true, "p1-w1-d0": true, "p1-w1-d1": true, "p1-w1-d2": true, "p1-w1-d3": true, "p1-w1-d4": true, "p1-w1-d5": true, "p1-w1-d6": true, "p1-w2-d0": true, "p1-w2-d1": true, "p1-w2-d2": true, "p1-w2-d3": true, "p1-w2-d4": true, "p1-w2-d5": true, "p1-w2-d6": true} };
 try { const s = localStorage.getItem('fc50k'); if(s) { const stored = JSON.parse(s); S.checked = Object.assign({}, S.checked, stored); } } catch(e) {}
 try {
   const detected = detectCurrentPhaseAndWeek();
